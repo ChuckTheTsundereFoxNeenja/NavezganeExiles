@@ -1,0 +1,16 @@
+<NavezganeExiles>
+
+    <!-- Rebalance to EXP gain from upgrades/repairs -->
+    <set xpath="/materials/material[@id='MresourceConcreteMix']/property[@name='Experience']/@value">4</set>
+	<set xpath="/materials/material[@id='MresourceCement']/property[@name='Experience']/@value">2</set>
+	<set xpath="/materials/material[@id='MresourceCrushedSand']/property[@name='Experience']/@value">1.5</set>
+	<set xpath="/materials/material[@id='MresourceRockSmall']/property[@name='Experience']/@value">2</set>
+	<set xpath="/materials/material[@id='Mconcrete']/property[@name='Experience']/@value">2</set>
+	<set xpath="/materials/material[@id='MrConcrete']/property[@name='Experience']/@value">2</set>
+	<set xpath="/materials/material[@id='Msteel']/property[@name='Experience']/@value">3</set>
+	<set xpath="/materials/material[@id='Mcobblestone']/property[@name='Experience']/@value">1.6</set>
+	<set xpath="/materials/material[@id='Mwood_regular']/property[@name='Experience']/@value">2.1</set>
+	<set xpath="/materials/material[@id='MwoodReinforced']/property[@name='Experience']/@value">2.1</set>
+	<set xpath="/materials/material[@id='MresourceBone']/property[@name='Experience']/@value">5</set>
+	
+</NavezganeExiles>

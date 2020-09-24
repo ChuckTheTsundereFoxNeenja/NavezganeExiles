@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+	<ModInfo>
+		<Name value="NavezganeExiles" />
+		<Description value="Overhaul mod attempt at rebalancing 7DTD in favor of more general difficulty, some changes inspired by Path Of Exile" />
+		<Author value="Tcheek10" />
+		<Version value="1.0.0" />
+	</ModInfo>
+</xml>

@@ -1,0 +1,27 @@
+<NavezganeExiles>
+
+    <!-- Small reduction to day delay for natural zombie and animal respawns in the wild -->
+    <set xpath="/spawning/biome[@name='pine_forest']/spawn[@entitygroup='ZombiesAll']/@respawndelay">2</set>
+	<set xpath="/spawning/biome[@name='pine_forest']/spawn[@entitygroup='ZombiesNight']/@respawndelay">2</set>
+	<set xpath="/spawning/biome[@name='pine_forest']/spawn[@entitygroup='WildGameForest']/@respawndelay">0.9</set>
+	<set xpath="/spawning/biome[@name='pine_forest']/spawn[@entitygroup='EnemyAnimalsForest']/@respawndelay">1</set>
+	
+	<set xpath="/spawning/biome[@name='burnt_forest']/spawn[@entitygroup='ZombiesBurntForest']/@respawndelay">1.8</set>
+	<set xpath="/spawning/biome[@name='burnt_forest']/spawn[@entitygroup='ZombiesNight']/@respawndelay">1.8</set>
+	<set xpath="/spawning/biome[@name='burnt_forest']/spawn[@entitygroup='WildGameForest']/@respawndelay">0.9</set>
+	<set xpath="/spawning/biome[@name='burnt_forest']/spawn[@entitygroup='EnemyAnimalsBurntForest']/@respawndelay">1</set>
+	
+	<set xpath="/spawning/biome[@name='desert']/spawn[@entitygroup='ZombiesAll']/@respawndelay">2</set>
+	<set xpath="/spawning/biome[@name='desert']/spawn[@entitygroup='ZombiesNight']/@respawndelay">2</set>
+	<set xpath="/spawning/biome[@name='desert']/spawn[@entitygroup='WildGameForest']/@respawndelay">0.9</set>
+	<set xpath="/spawning/biome[@name='desert']/spawn[@entitygroup='EnemyAnimalsDesert']/@respawndelay">2.5</set>
+	
+	<set xpath="/spawning/biome[@name='snow']/spawn[@entitygroup='SnowZombies']/@respawndelay">1.8</set>
+	<set xpath="/spawning/biome[@name='snow']/spawn[@entitygroup='ZombiesNight']/@respawndelay">1.8</set>
+	<set xpath="/spawning/biome[@name='snow']/spawn[@entitygroup='WildGameForest']/@respawndelay">0.9</set>
+	<set xpath="/spawning/biome[@name='snow']/spawn[@entitygroup='EnemyAnimalsSnow']/@respawndelay">2.1</set>
+	
+	
+
+
+</NavezganeExiles>

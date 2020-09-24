@@ -1,0 +1,1103 @@
+<NavezganeExiles>
+
+	<!-- Doubling the value of perk books and schematics -->
+	<set xpath="/items/item[@name='bookFiremansAlmanacHeat']/property[@name='EconomicValue']/@value">1000</set>
+	<set xpath="/items/item[@name='schematicMaster']/property[@name='EconomicValue']/@value">1600</set>
+	
+	<!-- Small increase to value of gems to match the overall increased costs -->
+	<set xpath="/items/item[@name='resourceSilverNugget']/property[@name='EconomicValue']/@value">350</set>
+	<set xpath="/items/item[@name='resourceGoldNugget']/property[@name='EconomicValue']/@value">850</set>
+	<set xpath="/items/item[@name='resourceRawDiamond']/property[@name='EconomicValue']/@value">1600</set>
+
+	<!-- New Tier 4 Tools added for new book series -->
+	<insertAfter xpath="/items/item[@name='meleeToolAllSteelParts']">
+		<item name="meleeToolAllTreatedSteelParts">
+			<property name="Extends" value="gunMGT1AK47Parts"/>
+			<property name="DescriptionKey" value="treatedSteelPartsGroupDesc"/>
+			<property name="Material" value="MmeleeToolAllSteel"/>
+			<property name="EconomicValue" value="200"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="CustomIcon" value="meleeToolAllSteelParts"/>
+		</item>
+	</insertAfter>
+	
+	<insertAfter xpath="/items/item[@name='meleeToolPickT2SteelPickaxe']">
+	
+		<item name="meleeToolPickT4TreatedSteelPickaxe">
+			<property name="Extends" value="meleeToolPickT1IronPickaxe"/>
+			<property name="DisplayType" value="melee"/>
+			<property name="HoldType" value="4"/>
+			<property name="TintColor" value="69,174,181"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="CustomIcon" value="meleeToolPickT2SteelPickaxe"/>
+			<property name="Meshfile" value="#Other/Items?Tools/pickaxe_steelPrefab.prefab"/>
+			<property name="RepairTools" value="resourceRepairKit"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Material" value="MmeleeToolAllSteel"/> <property name="Weight" value="6"/>
+			<property name="UnlockedBy" value="perkRogueWorker5DeadlyInnovation"/>
+			<property class="Action0">
+				<property name="GrazeStart" value=".5"/>
+				<property name="GrazeEnd" value=".6"/>
+				<property name="SwingDegrees" value="65"/>
+				<property name="SwingAngle" value="180"/>
+				<property name="UseGrazingHits" value="true"/>
+			</property>
+			<property class="Action1">
+				<property name="UsePowerAttackAnimation" value="true"/>
+				<property name="UseGrazingHits" value="true"/>
+				<property name="GrazeStart" value=".4"/>
+				<property name="GrazeEnd" value=".48"/>
+				<property name="SwingDegrees" value="110"/>
+				<property name="SwingAngle" value="90"/>
+			</property>
+			<property name="Group" value="Tools/Traps"/>
+			<effect_group name="meleeToolPickT4TreatedSteelPickaxe">
+				<passive_effect name="EntityDamage" operation="base_set" value="34" tags="perkMiner69r"/>
+				<passive_effect name="BlockDamage" operation="base_set" value="70" tags="perkMiner69r,miningTool"/>
+				<passive_effect name="AttacksPerMinute" operation="base_set" value="55" tags="perkMiner69r"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="30" tags="primary"/>
+				<passive_effect name="DegradationMax" operation="base_set" value="350,1287" tier="1,6" tags="perkMiner69r"/>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="perkMiner69r"/>
+				<passive_effect name="MaxRange" operation="base_set" value="2.6" tags="perkMiner69r"/>
+				<passive_effect name="BlockRange" operation="base_set" value="3.5" tags="perkMiner69r"/>
+
+				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
+				<passive_effect name="ModPowerBonus" operation="perc_add" value=".10" tags="EntityDamage,BlockDamage"/>
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+
+				<passive_effect name="EntityDamage" operation="perc_add" value="-.15,.15" tags="perkMiner69r"/> <!-- random EntityDmg -->
+				<passive_effect name="EntityDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkMiner69r"/> <!-- tier bonus -->
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="-.1" tags="Harvesting"/>
+				<passive_effect name="BlockDamage" operation="perc_add" value="-.15,.15" tags="perkMiner69r"/> <!-- random BlockDmg -->
+				<passive_effect name="BlockDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkMiner69r"/> <!-- tier bonus -->
+				<passive_effect name="DegradationMax" operation="perc_add" value="-.15,.15" tags="perkMiner69r"/> <!-- random DegMax -->
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="-.05,.05" tags="perkMiner69r"/> <!-- random APM -->
+				<passive_effect name="StaminaLoss" operation="perc_add" value="-.05,.05"/> <!-- random StamLoss -->
+
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.8" tags="wood"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.8" tags="earth"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value=".8" tags="terrGravel"/>
+			</effect_group>
+
+			<effect_group name="Power Attack">
+				<passive_effect name="EntityDamage" operation="perc_add" value="1.25" tags="secondary"/>
+				<passive_effect name="BlockDamage" operation="perc_add" value="1.25" tags="secondary"/>
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="-.3" tags="secondary"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="60" tags="secondary"/>
+			</effect_group>
+		</item>
+	
+	</insertAfter>
+	
+	<insertAfter xpath="/items/item[@name='meleeToolShovelT2SteelShovel']">
+	
+		<item name="meleeToolShovelT4TreatedSteelShovel">
+			<property name="Extends" value="meleeToolShovelT1IronShovel"/>
+			<property name="Tags" value="melee,grunting,medium,tool,longShaft,shovel,attStrength,perkMiner69r,perkMotherLode,canHaveCosmetic"/>
+			<property name="Meshfile" value="#Other/Items?Tools/shovel_steelPrefab.prefab"/>
+			<property name="TintColor" value="69,174,181"/>
+			<property name="CustomIcon" value="meleeToolShovelT1IronShovel"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="RepairTools" value="resourceRepairKit"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="Material" value="MmeleeToolAllSteel"/> <property name="Weight" value="6"/>
+			<property name="UnlockedBy" value="perkRogueWorker5DeadlyInnovation"/>
+
+			<effect_group name="meleeToolShovelT4TreatedSteelShovel">
+				<passive_effect name="EntityDamage" operation="base_set" value="30" tags="perkMiner69r"/>
+				<passive_effect name="BlockDamage" operation="base_set" value="75" tags="perkMiner69r"/>
+				<passive_effect name="AttacksPerMinute" operation="base_set" value="50" tags="perkMiner69r"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="30" tags="primary"/>
+				<passive_effect name="DegradationMax" operation="base_set" value="300,1100" tier="1,6" tags="perkMiner69r"/>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="perkMiner69r"/>
+				<passive_effect name="MaxRange" operation="base_set" value="2.6" tags="perkMiner69r"/>
+				<passive_effect name="BlockRange" operation="base_set" value="3.5" tags="perkMiner69r"/>
+
+				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
+				<passive_effect name="ModPowerBonus" operation="perc_add" value=".10" tags="EntityDamage,BlockDamage"/>
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+
+				<passive_effect name="EntityDamage" operation="perc_add" value="-.15,.15" tags="perkMiner69r"/> <!-- random EntityDmg -->
+				<passive_effect name="EntityDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkMiner69r"/> <!-- tier bonus -->
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="-.1" tags="Harvesting"/>
+				<passive_effect name="BlockDamage" operation="perc_add" value="-.15,.15" tags="perkMiner69r"/> <!-- random BlockDmg -->
+				<passive_effect name="BlockDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkMiner69r"/> <!-- tier bonus -->
+				<passive_effect name="DegradationMax" operation="perc_add" value="-.15,.15" tags="perkMiner69r"/> <!-- random DegMax -->
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="-.05,.05" tags="perkMiner69r"/> <!-- random APM -->
+				<passive_effect name="StaminaLoss" operation="perc_add" value="-.05,.05"/> <!-- random StamLoss -->
+
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.7" tags="wood"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.8" tags="stone"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.8" tags="metal"/>
+			</effect_group>
+			<effect_group name="Power Attack">
+				<passive_effect name="EntityDamage" operation="perc_add" value="1.25" tags="secondary"/>
+				<passive_effect name="BlockDamage" operation="perc_add" value="1.25" tags="secondary"/>
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="-.3" tags="secondary"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="60" tags="secondary"/>
+			</effect_group>
+		</item>
+	
+	</insertAfter>
+	
+	<insertAfter xpath="/items/item[@name='meleeToolAxeT2SteelAxe']">
+	
+		<item name="meleeToolAxeT4TreatedSteelAxe">
+			<property name="Extends" value="meleeToolAxeT1IronFireaxe"/>
+			<property name="Meshfile" value="#Other/Items?Weapons/Melee/Axe/steelAxePrefab.prefab"/>
+			<property name="TintColor" value="69,174,181"/>
+			<property name="CustomIcon" value="meleeToolAxeT2SteelAxe"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="EconomicValue" value="10000"/>
+			<property name="UnlockedBy" value="perkRogueWorker5DeadlyInnovation"/>
+			<property name="Material" value="MmeleeToolAllSteel"/> <property name="Weight" value="6"/>
+
+			<property class="Action0">
+				<property name="Sound_start" value="axe_swinglight"/>
+			</property>
+			<property class="Action1">
+				<property name="Sound_start" value="axe_swingheavy"/>
+			</property>
+
+			<effect_group name="meleeToolAxeT4TreatedSteelAxe">
+				<passive_effect name="EntityDamage" operation="base_set" value="39" tags="perkMiner69r"/>
+				<passive_effect name="BlockDamage" operation="base_set" value="90" tags="perkMiner69r"/>
+				<passive_effect name="AttacksPerMinute" operation="base_set" value="47" tags="perkMiner69r,axe"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="40" tags="primary"/>
+				<passive_effect name="DegradationMax" operation="base_set" value="300,1100" tier="1,6" tags="perkMiner69r"/>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="perkMiner69r"/>
+				<passive_effect name="MaxRange" operation="base_set" value="2.6" tags="perkMiner69r"/>
+				<passive_effect name="BlockRange" operation="base_set" value="3.5" tags="perkMiner69r"/>
+
+				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
+				<passive_effect name="ModPowerBonus" operation="perc_add" value=".10" tags="EntityDamage,BlockDamage"/>
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+
+				<passive_effect name="EntityDamage" operation="perc_add" value="-.15,.15" tags="perkMiner69r"/> <!-- random EntityDmg -->
+				<passive_effect name="EntityDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkMiner69r"/> <!-- tier bonus -->
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="-.1" tags="Harvesting"/>
+				<passive_effect name="BlockDamage" operation="perc_add" value="-.15,.15" tags="perkMiner69r"/> <!-- random BlockDmg -->
+				<passive_effect name="BlockDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkMiner69r"/> <!-- tier bonus -->
+				<passive_effect name="DegradationMax" operation="perc_add" value="-.15,.15" tags="perkMiner69r"/> <!-- random DegMax -->
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="-.05,.05" tags="perkMiner69r"/> <!-- random APM -->
+				<passive_effect name="StaminaLoss" operation="perc_add" value="-.05,.05"/> <!-- random StamLoss -->
+
+				<passive_effect name="HarvestCount" operation="base_set" value=".7" tags="butcherHarvest"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.8" tags="earth"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.75" tags="stone"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.75" tags="metal"/>
+			</effect_group>
+			<effect_group name="Power Attack">
+				<passive_effect name="EntityDamage" operation="perc_add" value="1.25" tags="secondary"/>
+				<passive_effect name="BlockDamage" operation="perc_add" value="1.25" tags="secondary"/>
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="-.3" tags="secondary"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="80" tags="secondary"/>
+			</effect_group>
+		</item>
+	
+	</insertAfter>
+
+	<!-- Added tag to construction tools to use for the new book series -->
+	<append xpath="/items/item[@name='meleeToolRepairT0StoneAxe' or @name='meleeToolRepairT0TazasStoneAxe' or @name='meleeToolRepairT1ClawHammer' or @name='meleeToolRepairT3Nailgun']/property[@name='Tags']/@value">,constructionTool</append>
+	
+	<!-- New book series based around making tools better as weapons -->
+	<insertAfter xpath="/items/item[@name='bookSpearHunter7QuickStrike']">
+		<item name="bookRogueWorker1BrainPicker"> <!-- first book -->
+			<property name="Extends" value="bookFiremansAlmanacHeat"/>
+			<property name="CustomIcon" value="bookArtOfMiningLuckyStrike"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="DescriptionKey" value="perkRogueWorker1BrainPickerLongDesc"/>
+			<property name="Unlocks" value="perkRogueWorker1BrainPicker"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkRogueWorker1BrainPicker" level="-1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkRogueWorker8Complete" level="-1">
+					<requirement name="PerksUnlocked" skill_name="skillRogueWorker" operation="GTE" value="7"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="PlaySound" sound="read_skillbook_final" play_in_head="true">
+					<requirement name="PerksUnlocked" skill_name="skillRogueWorker" operation="GTE" value="7"/></triggered_effect>
+			</effect_group>
+		</item>
+		
+		<item name="bookRogueWorker2ConstructedHomicide">
+			<property name="Extends" value="bookRogueWorker1BrainPicker"/>
+			<property name="DescriptionKey" value="perkRogueWorker2ConstructedHomicideLongDesc"/>
+			<property name="Unlocks" value="perkRogueWorker2ConstructedHomicide"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkRogueWorker2ConstructedHomicide" level="-1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkRogueWorker8Complete" level="-1">
+					<requirement name="PerksUnlocked" skill_name="skillRogueWorker" operation="GTE" value="7"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="PlaySound" sound="read_skillbook_final" play_in_head="true">
+					<requirement name="PerksUnlocked" skill_name="skillRogueWorker" operation="GTE" value="7"/></triggered_effect>
+			</effect_group>
+		</item>
+		
+		<item name="bookRogueWorker3BoneExcavation">
+			<property name="Extends" value="bookRogueWorker1BrainPicker"/>
+			<property name="DescriptionKey" value="perkRogueWorker3BoneExcavationLongDesc"/>
+			<property name="Unlocks" value="perkRogueWorker3BoneExcavation"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkRogueWorker3BoneExcavation" level="-1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkRogueWorker8Complete" level="-1">
+					<requirement name="PerksUnlocked" skill_name="skillRogueWorker" operation="GTE" value="7"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="PlaySound" sound="read_skillbook_final" play_in_head="true">
+					<requirement name="PerksUnlocked" skill_name="skillRogueWorker" operation="GTE" value="7"/></triggered_effect>
+			</effect_group>
+		</item>
+		
+		<item name="bookRogueWorker4WastelandRescue">
+			<property name="Extends" value="bookRogueWorker1BrainPicker"/>
+			<property name="DescriptionKey" value="perkRogueWorker4WastelandRescueLongDesc"/>
+			<property name="Unlocks" value="perkRogueWorker4WastelandRescue"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkRogueWorker4WastelandRescue" level="-1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkRogueWorker8Complete" level="-1">
+					<requirement name="PerksUnlocked" skill_name="skillRogueWorker" operation="GTE" value="7"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="PlaySound" sound="read_skillbook_final" play_in_head="true">
+					<requirement name="PerksUnlocked" skill_name="skillRogueWorker" operation="GTE" value="7"/></triggered_effect>
+			</effect_group>
+		</item>
+		
+		<item name="bookRogueWorker5DeadlyInnovation">
+			<property name="Extends" value="bookRogueWorker1BrainPicker"/>
+			<property name="DescriptionKey" value="perkRogueWorker5DeadlyInnovationLongDesc"/>
+			<property name="Unlocks" value="perkRogueWorker5DeadlyInnovation"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkRogueWorker5DeadlyInnovation" level="-1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkRogueWorker8Complete" level="-1">
+					<requirement name="PerksUnlocked" skill_name="skillRogueWorker" operation="GTE" value="7"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="PlaySound" sound="read_skillbook_final" play_in_head="true">
+					<requirement name="PerksUnlocked" skill_name="skillRogueWorker" operation="GTE" value="7"/></triggered_effect>
+			</effect_group>
+		</item>
+		
+		<item name="bookRogueWorker6IndustrialApproach">
+			<property name="Extends" value="bookRogueWorker1BrainPicker"/>
+			<property name="DescriptionKey" value="perkRogueWorker6IndustrialApproachLongDesc"/>
+			<property name="Unlocks" value="perkRogueWorker6IndustrialApproach"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkRogueWorker6IndustrialApproach" level="-1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkRogueWorker8Complete" level="-1">
+					<requirement name="PerksUnlocked" skill_name="skillRogueWorker" operation="GTE" value="7"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="PlaySound" sound="read_skillbook_final" play_in_head="true">
+					<requirement name="PerksUnlocked" skill_name="skillRogueWorker" operation="GTE" value="7"/></triggered_effect>
+			</effect_group>
+		</item>
+		
+		<item name="bookRogueWorker7WorkersWill">
+			<property name="Extends" value="bookRogueWorker1BrainPicker"/>
+			<property name="DescriptionKey" value="perkRogueWorker7WorkersWillLongDesc"/>
+			<property name="Unlocks" value="perkRogueWorker7WorkersWill"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkRogueWorker7WorkersWill" level="-1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="SetProgressionLevel" progression_name="perkRogueWorker8Complete" level="-1">
+					<requirement name="PerksUnlocked" skill_name="skillRogueWorker" operation="GTE" value="7"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="PlaySound" sound="read_skillbook_final" play_in_head="true">
+					<requirement name="PerksUnlocked" skill_name="skillRogueWorker" operation="GTE" value="7"/></triggered_effect>
+			</effect_group>
+		</item>
+	</insertAfter>
+	
+	<append xpath="/items/item[@name='apparelGothPants']/effect_group[@tiered='false']">
+		<passive_effect name="StaminaLoss" operation="perc_add" value="-.1">
+			<requirement name="ProgressionLevel" progression_name="perkRogueWorker6IndustrialApproach" operation="Equals" value="1"/>
+			<requirement name="ItemHasTags" tags="tool"/>
+		</passive_effect>
+	</append>
+
+	<!-- New Tier 4 melee weapons, designed for 150-200+ GS when most zombies are in the feral/fat/radiated category -->
+	<insertAfter xpath="/items/item[@name='meleeWpnSledgeT3SteelSledgehammerParts']">
+		<item name="meleeWpnSledgeT4TreatedSteelSledgehammerParts">
+			<property name="Extends" value="gunMGT1AK47Parts"/>
+			<property name="DescriptionKey" value="treatedSteelPartsGroupDesc"/>
+			<property name="Material" value="MmeleeWpnSledgeParts"/>
+			<property name="EconomicValue" value="200"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="CustomIcon" value="meleeWpnSledgeT3SteelSledgehammerParts"/>
+		</item>
+	</insertAfter>
+	
+	<insertAfter xpath="/items/item[@name='meleeWpnSledgeT3SteelSledgehammerSchematic']">
+		<item name="meleeWpnSledgeT4TreatedSteelSledgehammerSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="CustomIcon" value="meleeWpnSledgeT3SteelSledgehammer"/>
+			<property name="Unlocks" value="meleeWpnSledgeT4TreatedSteelSledgehammer"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="meleeWpnSledgeT4TreatedSteelSledgehammer" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+	</insertAfter>
+	
+	<insertAfter xpath="/items/item[@name='meleeWpnSledgeT3SteelSledgehammer']">
+		<item name="meleeWpnSledgeT4TreatedSteelSledgehammer">
+			<property name="Tags" value="blunt,melee,grunting,heavy,sledge,weapon,meleeWeapon,longShaft,attStrength,perkSkullCrusher,canHaveCosmetic"/>
+			<property name="DisplayType" value="meleeHeavy"/>
+			<property name="HoldType" value="33"/>
+			<property name="TintColor" value="69,174,181"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="CustomIcon" value="meleeWpnSledgeT3SteelSledgehammer"/>
+			<property name="Meshfile" value="#Other/Items?Weapons/Melee/SledgeHammer/steelSledgeHammerPrefab.prefab"/>
+			<property name="Material" value="MmeleeWpnSledgeParts"/> <property name="Weight" value="6"/>
+			<property name="RepairTools" value="resourceRepairKit"/>
+			<property name="DegradationBreaksAfter" value="false"/>
+			<property name="SoundJammed" value="ItemNeedsRepair"/>
+			<property name="SoundDestroy" value="metaldestroy1"/>
+			<property name="FuelValue" value="250"/>
+			<property name="EconomicValue" value="12500"/>
+			<property name="Group" value="Ammo/Weapons"/>
+			<property name="UnlockedBy" value="meleeWpnSledgeT4TreatedSteelSledgehammerSchematic"/>
+			<property name="ShowQuality" value="true"/>
+
+			<property class="Action0">
+				<property name="Class" value="DynamicMelee"/>
+				<property name="Sphere" value=".15"/>   <!-- limit to 0.15, else the sphere cast can overlap the target already -->
+				<property name="Sound_start" value="sledge_swinglight"/>
+				<property name="ToolCategory.harvestingTools" value=".5" param1="1"/>
+
+				<property name="UseGrazingHits" value="true"/>
+				<property name="GrazeStart" value=".515"/>
+				<property name="GrazeEnd" value=".52"/>
+				<property name="SwingDegrees" value="65"/>
+				<property name="SwingAngle" value="160"/>
+				<property class="HitSounds">
+					<property name="Override0" value="organic" param1="metalsolidhitorganic"/>
+				</property>
+				<property class="GrazeSounds">
+					<property name="Override0" value="organic" param1="metalgrazeorganic"/>
+				</property>
+			</property>
+			<property class="Action1">
+				<property name="Class" value="DynamicMelee"/>
+				<property name="Sphere" value=".15"/>   <!-- limit to 0.15, else the sphere cast can overlap the target already -->
+				<property name="Sound_start" value="sledge_swingheavy"/>
+				<property name="ToolCategory.harvestingTools" value=".5" param1="1"/>
+				<property name="UsePowerAttackAnimation" value="true"/>
+
+				<property name="UseGrazingHits" value="true"/>
+				<property name="GrazeStart" value=".515"/>
+				<property name="GrazeEnd" value=".52"/>
+				<property name="SwingDegrees" value="110"/>
+				<property name="SwingAngle" value="90"/>
+				<property class="HitSounds">
+					<property name="Override0" value="organic" param1="metalsolidhitorganic"/>
+				</property>
+				<property class="GrazeSounds">
+					<property name="Override0" value="organic" param1="metalgrazeorganic"/>
+				</property>
+			</property>
+			<effect_group name="meleeWpnSledgeT4TreatedSteelSledgehammer">
+				<passive_effect name="EntityDamage" operation="base_set" value="62" tags="perkSkullCrusher"/> <!-- meleeWpnSledgeT4TreatedSteelSledgehammer -->
+				<passive_effect name="BlockDamage" operation="base_set" value="110" tags="perkSkullCrusher"/>
+				<passive_effect name="AttacksPerMinute" operation="base_set" value="34" tags="perkSkullCrusher"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="60" tags="primary"/>
+				<passive_effect name="DegradationMax" operation="base_set" value="207,581" tier="1,6" tags="perkSkullCrusher"/>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="perkSkullCrusher"/>
+				<passive_effect name="MaxRange" operation="base_set" value="2.6" tags="perkSkullCrusher"/>
+				<passive_effect name="BlockRange" operation="base_set" value="3.5" tags="perkSkullCrusher"/>
+				<passive_effect name="DismemberChance" operation="base_add" value=".1" tags="perkSkullCrusher,primary"/>
+
+				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
+				<passive_effect name="ModPowerBonus" operation="perc_add" value=".10" tags="EntityDamage,BlockDamage"/>
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+
+				<passive_effect name="EntityDamage" operation="perc_add" value="-.15,.15" tags="perkSkullCrusher"/> <!-- random EntityDmg -->
+				<passive_effect name="EntityDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkSkullCrusher"/> <!-- tier bonus -->
+				<passive_effect name="BlockDamage" operation="perc_add" value="-.15,.15" tags="perkSkullCrusher"/> <!-- random BlockDmg -->
+				<passive_effect name="BlockDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkSkullCrusher"/> <!-- tier bonus -->
+
+				<passive_effect name="HarvestCount" operation="base_add" value="-.75" tags="allHarvest"/>
+				<passive_effect name="HarvestCount" operation="base_add" value="-.75" tags="allToolsHarvest"/>
+				<passive_effect name="HarvestCount" operation="base_add" value="-.75" tags="oreWoodHarvest"/>
+			</effect_group>
+			<effect_group name="Power Attack">
+				<passive_effect name="EntityDamage" operation="perc_add" value="1.25" tags="secondary"/>
+				<passive_effect name="BlockDamage" operation="perc_add" value="1.25" tags="secondary"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="120" tags="secondary"/>
+				<passive_effect name="DismemberChance" operation="base_add" value=".3" tags="secondary"/>
+			</effect_group>
+		</item>
+	</insertAfter>
+	
+	<insertAfter xpath="/items/item[@name='meleeWpnKnucklesT3SteelKnucklesParts']">
+		<item name="meleeWpnKnucklesT4TreatedSteelKnucklesParts">
+			<property name="Extends" value="gunMGT1AK47Parts"/>
+			<property name="DescriptionKey" value="treatedSteelPartsGroupDesc"/>
+			<property name="Material" value="MmeleeWpnKnucklesParts"/>
+			<property name="EconomicValue" value="200"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="CustomIcon" value="meleeWpnKnucklesT3SteelKnucklesParts"/>
+		</item>
+	</insertAfter>
+	
+	<insertBefore xpath="/items/item[@name='meleeWpnClubT1BaseballBatSchematic']">
+		<item name="meleeWpnKnucklesT4TreatedSteelKnucklesSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="CustomIcon" value="meleeWpnKnucklesT3SteelKnuckles"/>
+			<property name="Unlocks" value="meleeWpnKnucklesT4TreatedSteelKnuckles"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="meleeWpnKnucklesT4TreatedSteelKnuckles" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+	</insertBefore>
+	
+	<insertAfter xpath="/items/item[@name='meleeWpnKnucklesT3SteelKnuckles']">
+		<item name="meleeWpnKnucklesT4TreatedSteelKnuckles">
+			<property name="Extends" value="meleeWpnKnucklesT1IronKnuckles"/>
+			<property name="Material" value="MmeleeWpnKnucklesParts"/>
+			<property name="Meshfile" value="#Other/Items?Weapons/Melee/Knuckles/knucklesSpikedRight_Prefab.prefab"/>
+			<property name="HoldType" value="79"/>
+			<property name="TintColor" value="69,174,181"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="CustomIcon" value="meleeWpnKnucklesT3SteelKnuckles"/>
+			<property name="EconomicValue" value="12500"/>
+			<property name="UnlockedBy" value="meleeWpnKnucklesT4TreatedSteelKnucklesSchematic"/>
+
+			<property class="Action0">
+				<property name="ToolCategory.Butcher" value="5" param1="1.5"/>
+				<property class="HitSounds">
+					<property name="Override0" value="organic" param1="metalstaborganic"/>
+				</property>
+				<property class="GrazeSounds">
+					<property name="Override0" value="organic" param1="metalgrazeorganic"/>
+				</property>
+			</property>
+			<property class="Action1">
+				<property name="ToolCategory.Butcher" value="0" param1="1.5"/>
+				<property class="HitSounds">
+					<property name="Override0" value="organic" param1="metalstaborganic"/>
+				</property>
+				<property class="GrazeSounds">
+					<property name="Override0" value="organic" param1="metalgrazeorganic"/>
+				</property>
+			</property>
+
+			<effect_group name="meleeWpnKnucklesT4TreatedSteelKnuckles">
+				<passive_effect name="EntityDamage" operation="base_set" value="18" tags="perkBrawler"/>
+				<passive_effect name="BlockDamage" operation="base_set" value="8" tags="perkBrawler"/>
+				<passive_effect name="AttacksPerMinute" operation="base_set" value="100" tags="perkBrawler"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="11" tags="primary"/>
+				<passive_effect name="DegradationMax" operation="base_set" value="577,1346" tier="1,6" tags="perkBrawler"/>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="perkBrawler"/>
+				<passive_effect name="MaxRange" operation="base_set" value="2.0" tags="perkBrawler"/>
+				<passive_effect name="BlockRange" operation="base_set" value="3" tags="perkBrawler"/>
+
+				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
+				<passive_effect name="ModPowerBonus" operation="perc_add" value=".10" tags="EntityDamage,BlockDamage"/>
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+
+				<passive_effect name="EntityDamage" operation="perc_add" value="-.15,.15" tags="perkBrawler"/> <!-- random EntityDmg -->
+				<passive_effect name="EntityDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkBrawler"/> <!-- tier bonus -->
+				<passive_effect name="BlockDamage" operation="perc_add" value="-.15,.15" tags="perkBrawler"/> <!-- random BlockDmg -->
+				<passive_effect name="BlockDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkBrawler"/> <!-- tier bonus -->
+
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.5" tags="earth"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.5" tags="stone"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.5" tags="metal"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="1.7" tags="organic"/>
+				<passive_effect name="HarvestCount" operation="base_set" value="1" tags="butcherHarvest"/>
+
+				<triggered_effect trigger="onSelfEquipStart" action="AddPart" part="LeftKnuckles" prefab="#Other/Items?Weapons/Melee/Knuckles/knucklesSpikedLeft_Prefab.prefab" parentTransform="Propjoint" localPos="0,0,0" localRot="0,0,0">
+					<requirement name="IsFPV"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfEquipStart" action="AddPart" part="LeftKnuckles" prefab="#Other/Items?Weapons/Melee/Knuckles/knucklesSpikedLeft_Prefab.prefab" parentTransform="LeftHand" localPos="-0.1171,0.004,-0.0187" localRot="-30.53241,-11.3179,135.1055">
+					<requirement name="!IsFPV"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfEquipStop" action="RemovePart" part="LeftKnuckles"/>
+			</effect_group>
+			<effect_group name="Power Attack">
+				<passive_effect name="EntityDamage" operation="perc_add" value="1.1" tags="secondary"/>
+				<passive_effect name="BlockDamage" operation="perc_add" value="1" tags="secondary"/>
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="-.3" tags="secondary"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="19" tags="secondary"/>
+			</effect_group>
+		</item>
+	</insertAfter>
+	
+	<insertAfter xpath="/items/item[@name='meleeWpnSpearT3SteelSpearParts']">
+		<item name="meleeWpnSpearT4TreatedSteelSpearParts">
+			<property name="Extends" value="gunMGT1AK47Parts"/>
+			<property name="DescriptionKey" value="treatedSteelPartsGroupDesc"/>
+			<property name="Material" value="MmeleeWpnSpearParts"/>
+			<property name="EconomicValue" value="200"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="CustomIcon" value="meleeWpnSpearT3SteelSpearParts"/>
+		</item>
+	</insertAfter>
+	
+	<insertBefore xpath="/items/item[@name='meleeWpnBladeT1HuntingKnifeSchematic']">
+		<item name="meleeWpnSpearT4TreatedSteelSpearSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="CustomIcon" value="meleeWpnSpearT3SteelSpear"/>
+			<property name="Unlocks" value="meleeWpnSpearT4TreatedSteelSpear"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="meleeWpnSpearT4TreatedSteelSpear" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+	</insertBefore>
+	
+	<insertAfter xpath="/items/item[@name='meleeWpnSpearT3SteelSpear']">
+		<item name="meleeWpnSpearT4TreatedSteelSpear">
+			<property name="Extends" value="meleeWpnSpearT1IronSpear"/>
+			<property name="Meshfile" value="#Other/Items?Weapons/Melee/Spear/spear_steel_Prefab.prefab"/>
+			<property name="Material" value="MmeleeWpnSpearParts"/><property name="Weight" value="6"/>
+			<property name="StickyMaterial" value="#Other/Items?Weapons/Melee/Spear/Materials/spearIron_sticky.mat"/>
+			<property name="TintColor" value="69,174,181"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="CustomIcon" value="meleeWpnSpearT3SteelSpear"/>
+			<property name="EconomicValue" value="12500"/>
+			<property name="UnlockedBy" value="meleeWpnSpearT4TreatedSteelSpearSchematic"/>
+
+			<property class="Action1">
+				<requirement name="StatCompareCurrent" stat="Stamina" operation="GTE" value="22.8"/>
+			</property>
+
+			<effect_group name="meleeWpnSpearT4TreatedSteelSpear">
+				<passive_effect name="EntityDamage" operation="base_set" value="26.5" tags="perkJavelinMaster"/> <!-- meleeWpnSpearT4TreatedSteelSpear -->
+				<passive_effect name="TargetArmor" operation="perc_add" value="-.4" tags="perkJavelinMaster"/><display_value name="dTargetArmor" value="-.4"/>
+				<passive_effect name="BlockDamage" operation="base_set" value="12.5" tags="perkJavelinMaster"/>
+				<passive_effect name="AttacksPerMinute" operation="base_set" value="55" tags="perkJavelinMaster"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="25" tags="primary"/>
+				<passive_effect name="DegradationMax" operation="base_set" value="317,592" tier="1,6" tags="perkJavelinMaster"/>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="perkJavelinMaster"/>
+				<passive_effect name="MaxRange" operation="base_set" value="3.2" tags="perkJavelinMaster"/>
+				<passive_effect name="BlockRange" operation="base_set" value="3.5" tags="perkJavelinMaster"/>
+
+				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
+				<passive_effect name="ModPowerBonus" operation="perc_add" value=".10" tags="EntityDamage,BlockDamage"/>
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+
+				<passive_effect name="EntityDamage" operation="perc_add" value="-.15,.15" tags="perkJavelinMaster"/> <!-- random EntityDmg -->
+				<passive_effect name="EntityDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkJavelinMaster"/> <!-- tier bonus -->
+
+				<passive_effect name="BlockDamage" operation="perc_add" value="-.15,.15" tags="perkJavelinMaster"/> <!-- random BlockDmg -->
+				<passive_effect name="BlockDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkJavelinMaster"/> <!-- tier bonus -->
+
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.8" tags="wood"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.9" tags="stone"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.9" tags="metal"/>
+
+				<passive_effect name="HarvestCount" operation="base_add" value="-.75" tags="allHarvest"/>
+				<passive_effect name="HarvestCount" operation="base_add" value="-.75" tags="allToolsHarvest"/>
+				<passive_effect name="HarvestCount" operation="base_add" value="-.75" tags="oreWoodHarvest"/>
+			</effect_group>
+
+			<effect_group name="Throw">
+				<passive_effect name="EntityDamage" operation="perc_add" value="3.00" tags="secondary"/>
+				<passive_effect name="BlockDamage" operation="perc_add" value="3.00" tags="secondary"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="50" tags="secondary"/>
+			</effect_group>
+			<property name="Group" value="Ammo/Weapons"/>
+		</item>
+	</insertAfter>
+	
+	<insertAfter xpath="/items/item[@name='meleeWpnClubT3SteelClubParts']">
+		<item name="meleeWpnClubT4TreatedSteelClubParts">
+			<property name="Extends" value="gunMGT1AK47Parts"/>
+			<property name="DescriptionKey" value="treatedSteelPartsGroupDesc"/>
+			<property name="Material" value="MmeleeWpnClubParts"/>
+			<property name="EconomicValue" value="200"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="CustomIcon" value="meleeWpnClubT3SteelClubParts"/>
+		</item>
+	</insertAfter>
+	
+	<insertAfter xpath="/items/item[@name='meleeWpnClubT1BaseballBatSchematic']">
+		<item name="meleeWpnClubT4TreatedSteelClubSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="CustomIcon" value="meleeWpnClubT3SteelClub"/>
+			<property name="Unlocks" value="meleeWpnClubT4TreatedSteelClub"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="meleeWpnClubT4TreatedSteelClub" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+	</insertAfter>
+	
+	<insertAfter xpath="/items/item[@name='meleeWpnClubT3SteelClub']">
+		<item name="meleeWpnClubT4TreatedSteelClub"> <!-- T3 clubs -->
+			<property name="Tags" value="blunt,club,melee,grunting,light,longShaft,perkFlurryOfBlows,weapon,meleeWeapon,attStrength,perkPummelPete,canHaveCosmetic"/>
+			<property name="DisplayType" value="melee"/>
+			<property name="Group" value="Ammo/Weapons"/>
+			<property name="Meshfile" value="#Other/Items?Weapons/Melee/ClubIron/ClubIronPrefab.prefab"/>
+			<property name="HoldType" value="2"/>
+			<property name="TintColor" value="69,174,181"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="CustomIcon" value="meleeWpnClubT3SteelClub"/>
+			<property name="Material" value="MmeleeWpnClubParts"/> <property name="Weight" value="6"/>
+			<property name="RepairTools" value="resourceRepairKit"/>
+			<property name="SoundDestroy" value="wooddestroy1"/>
+			<property name="RepairExpMultiplier" value="5.5"/>
+			<property name="EconomicBundleSize" value="1"/>
+			<property name="EconomicValue" value="12500"/>
+			<property name="FuelValue" value="250"/>
+			<property name="UnlockedBy" value="meleeWpnClubT4TreatedSteelClubSchematic"/>
+			<property name="ShowQuality" value="true"/>
+
+			<property class="Action0">
+				<property name="Class" value="DynamicMelee"/>
+				<property name="Sound_start" value="batwood_swinglight"/>
+				<property name="Sphere" value=".1"/>
+				<property name="ToolCategory.harvestingTools" value=".5" param1="1"/>
+
+				<property name="UseGrazingHits" value="true"/>
+				<property name="GrazeStart" value=".25"/>
+				<property name="GrazeEnd" value=".32"/>
+				<property name="SwingDegrees" value="65"/>
+				<property name="SwingAngle" value="120"/>
+			<property class="HitSounds">
+				<property name="Override0" value="organic" param1="metalhitorganic"/>
+			</property>
+			<property class="GrazeSounds">
+				<property name="Override0" value="organic" param1="metalgrazeorganic"/>
+			</property>
+			</property>
+
+			<property class="Action1">
+				<property name="Class" value="DynamicMelee"/>
+				<property name="Sound_start" value="batwood_swingheavy"/>
+				<property name="Sphere" value=".15"/>
+				<property name="ToolCategory.harvestingTools" value=".5" param1="1"/>
+				<property name="UsePowerAttackAnimation" value="true"/>
+
+				<property name="UseGrazingHits" value="true"/>
+				<property name="IsHorizontalSwing" value="true"/>
+				<property name="GrazeStart" value=".25"/>
+				<property name="GrazeEnd" value=".32"/>
+				<property name="SwingDegrees" value="120"/>
+				<property name="SwingAngle" value="90"/>
+			<property class="HitSounds">
+				<property name="Override0" value="organic" param1="woodhitorganic"/>
+			</property>
+			<property class="GrazeSounds">
+				<property name="Override0" value="organic" param1="woodgrazeorganic"/>
+			</property>
+					</property>
+
+			<effect_group name="meleeWpnClubT4TreatedSteelClub">
+				<passive_effect name="EntityDamage" operation="base_set" value="36" tags="perkPummelPete"/> <!-- meleeWpnClubT4TreatedSteelClub -->
+				<passive_effect name="BlockDamage" operation="base_set" value="30" tags="perkPummelPete"/>
+				<passive_effect name="AttacksPerMinute" operation="base_set" value="52" tags="perkPummelPete,perkFlurryOfBlows"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="27.5" tags="primary"/>
+				<passive_effect name="DegradationMax" operation="base_set" value="300,700" tier="1,6" tags="perkPummelPete"/>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="perkPummelPete"/>
+				<passive_effect name="MaxRange" operation="base_set" value="2.4" tags="perkPummelPete"/>
+				<passive_effect name="BlockRange" operation="base_set" value="3" tags="perkPummelPete"/>
+
+				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
+				<passive_effect name="ModPowerBonus" operation="perc_add" value=".10" tags="EntityDamage,BlockDamage"/>
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+
+				<passive_effect name="EntityDamage" operation="perc_add" value="-.15,.15" tags="perkPummelPete"/> <!-- random EntityDmg -->
+				<passive_effect name="EntityDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkPummelPete"/> <!-- tier bonus -->
+				<passive_effect name="BlockDamage" operation="perc_add" value="-.15,.15" tags="perkPummelPete"/> <!-- random BlockDmg -->
+				<passive_effect name="BlockDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkPummelPete"/> <!-- tier bonus -->
+
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.5" tags="earth"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.5" tags="stone"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.5" tags="metal"/>
+
+				<passive_effect name="HarvestCount" operation="base_add" value="-.75" tags="allHarvest"/>
+				<passive_effect name="HarvestCount" operation="base_add" value="-.75" tags="allToolsHarvest"/>
+				<passive_effect name="HarvestCount" operation="base_add" value="-.75" tags="oreWoodHarvest"/>
+			</effect_group>
+			<effect_group name="Power Attack">
+				<passive_effect name="EntityDamage" operation="perc_add" value="1" tags="secondary"/>
+				<passive_effect name="BlockDamage" operation="perc_add" value="1" tags="secondary"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="50" tags="secondary"/>
+			</effect_group>
+		</item>
+	</insertAfter>
+	
+	<insertAfter xpath="/items/item[@name='meleeWpnBladeT3MacheteParts']">
+		<item name="meleeWpnBladeT4TreatedMacheteParts">
+			<property name="Extends" value="gunMGT1AK47Parts"/>
+			<property name="DescriptionKey" value="treatedSteelPartsGroupDesc"/>
+			<property name="Material" value="MmeleeWpnBladeParts"/>
+			<property name="EconomicValue" value="200"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="CustomIcon" value="meleeWpnBladeT3MacheteParts"/>
+		</item>
+	</insertAfter>
+	
+	<insertAfter xpath="/items/item[@name='meleeWpnBladeT3MacheteSchematic']">
+		<item name="meleeWpnBladeT4TreatedMacheteSchematic">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="CustomIcon" value="meleeWpnBladeT3Machete"/>
+			<property name="Unlocks" value="meleeWpnBladeT4TreatedMachete"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="meleeWpnBladeT4TreatedMachete" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+	</insertAfter>
+	
+	<insertAfter xpath="/items/item[@name='meleeWpnBladeT3Machete']">
+		<item name="meleeWpnBladeT4TreatedMachete">
+			<property name="Tags" value="machete,melee,grunting,light,longShaft,perkFlurryOfBlows,weapon,meleeWeapon,attAgility,perkDeepCuts,perkTheHuntsman,canHaveCosmetic"/>
+			<property name="DisplayType" value="meleeKnife"/>
+			<property name="HoldType" value="47"/>
+			<property name="TintColor" value="69,174,181"/>
+			<property name="CustomIconTint" value="45AEB5"/>
+			<property name="CustomIcon" value="meleeWpnBladeT3Machete"/>
+			<property name="Meshfile" value="#Other/Items?Weapons/Melee/Knives/machetePrefab.prefab"/>
+			<property name="Material" value="MmeleeWpnBladeParts"/> <property name="Weight" value="6"/>
+			<property name="RepairTools" value="resourceRepairKit"/>
+			<property name="DegradationBreaksAfter" value="false"/>
+			<property name="EconomicValue" value="700"/>
+			<property name="SoundJammed" value="ItemNeedsRepair"/>
+			<property name="SoundDestroy" value="wooddestroy1"/>
+			<property name="Group" value="Ammo/Weapons"/>
+			<property name="RepairExpMultiplier" value="5.5"/>
+			<property name="UnlockedBy" value="meleeWpnBladeT4TreatedMacheteSchematic"/>
+			<property name="ShowQuality" value="true"/>
+
+			<property class="Action0">
+				<property name="Class" value="DynamicMelee"/>
+				<property name="Damage_type" value="Slashing"/>
+				<property name="Sphere" value=".15"/>   <!-- limit to 0.15, else the sphere cast can overlap the target already -->
+				<property name="Sound_start" value="machete_swinglight"/>
+				<property name="ToolCategory.Butcher" value="0" param1="4.7"/>
+					<!-- This triggers the use of the special corpse harvesting animation if there is a matching harvest event.
+					Also, param1  is the damage multiplier for corpse harvesting. -->
+				<property name="UseGrazingHits" value="true"/>
+				<property name="GrazeStart" value=".28"/>
+				<property name="GrazeEnd" value=".4"/>
+				<property name="SwingDegrees" value="80"/>
+				<property name="SwingAngle" value="130"/>
+				<property class="HitSounds">
+					<property name="Override0" value="organic" param1="metalslashorganic"/>
+				</property>
+				<property class="GrazeSounds">
+					<property name="Override0" value="organic" param1="metalgrazeorganic"/>
+				</property>
+			</property>
+			<property class="Action1">
+				<property name="Class" value="DynamicMelee"/>
+				<property name="Damage_type" value="Slashing"/>
+				<property name="Sphere" value=".15"/>   <!-- limit to 0.15, else the sphere cast can overlap the target already -->
+				<property name="Sound_start" value="machete_swingheavy"/>
+				<property name="ToolCategory.Butcher" value="0" param1="4.7"/>
+				<property name="UsePowerAttackAnimation" value="true"/>
+
+				<property name="UseGrazingHits" value="true"/>
+				<property name="IsHorizontalSwing" value="true"/>
+				<property name="GrazeStart" value=".3"/>
+				<property name="GrazeEnd" value=".4"/>
+				<property name="SwingDegrees" value="-80"/>
+				<property name="SwingAngle" value="-60"/>
+				<property class="HitSounds">
+					<property name="Override0" value="organic" param1="metalslashorganic"/>
+				</property>
+				<property class="GrazeSounds">
+					<property name="Override0" value="organic" param1="metalgrazeorganic"/>
+				</property>
+			</property>
+			<effect_group name="meleeWpnBladeT4TreatedMachete">
+				<passive_effect name="EntityDamage" operation="base_set" value="28" tags="perkDeepCuts"/> <!-- meleeWpnBladeT4TreatedMachete -->
+				<passive_effect name="BlockDamage" operation="base_set" value="28" tags="perkDeepCuts"/>
+				<passive_effect name="AttacksPerMinute" operation="base_set" value="55" tags="perkDeepCuts,perkFlurryOfBlows"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="25" tags="primary"/>
+				<passive_effect name="DegradationMax" operation="base_set" value="288,673" tier="1,6" tags="perkDeepCuts"/>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="perkDeepCuts"/>
+				<passive_effect name="MaxRange" operation="base_set" value="2.3" tags="perkDeepCuts"/>
+				<passive_effect name="BlockRange" operation="base_set" value="3.5" tags="perkDeepCuts"/>
+
+				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
+				<passive_effect name="ModPowerBonus" operation="perc_add" value=".10" tags="EntityDamage,BlockDamage"/>
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+
+				<passive_effect name="EntityDamage" operation="perc_add" value="-.15,.15" tags="perkDeepCuts"/> <!-- random EntityDmg -->
+				<passive_effect name="EntityDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkDeepCuts"/> <!-- tier bonus -->
+				<passive_effect name="BlockDamage" operation="perc_add" value="-.15,.15" tags="perkDeepCuts"/> <!-- random BlockDmg -->
+				<passive_effect name="BlockDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkDeepCuts"/> <!-- tier bonus -->
+
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.8" tags="earth"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.8" tags="stone"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.8" tags="metal"/>
+				<passive_effect name="HarvestCount" operation="base_set" value="1" tags="butcherHarvest"/>
+				<!--<passive_effect name="BlockDamage" operation="perc_add" value="1.5" tags="blockButcher"/>-->
+			</effect_group>
+			<effect_group name="Power Attack">
+				<passive_effect name="EntityDamage" operation="perc_add" value="1.2" tags="secondary"/>
+				<passive_effect name="BlockDamage" operation="perc_add" value="1" tags="secondary"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="40" tags="secondary"/>
+			</effect_group>
+			<effect_group name="sneak damage bonus">
+				<requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1"/>
+				<requirement name="CVarCompare" cvar="_notAlerted" operation="GT" value="0" target="other"/>
+					<passive_effect name="DamageBonus" operation="base_add" value="4"/>
+					<passive_effect name="EntityDamage" operation="perc_add" value="4" tags="perkDeepCuts"/>
+					<display_value name="dEntityDamageSneak" value="4"/>
+			</effect_group>
+		</item>
+	</insertAfter>
+	
+	<!-- Buff to all tiers of alternate melee options to increase variety -->
+	
+	<set xpath="/items/item[@name='meleeWpnKnucklesT0LeatherKnuckles']/effect_group[@name='meleeWpnKnucklesT0LeatherKnuckles']/passive_effect[@name='EntityDamage'][@operation='base_set']/@value">7.5</set>
+	<set xpath="/items/item[@name='meleeWpnKnucklesT1IronKnuckles']/effect_group[@name='meleeWpnKnucklesT1IronKnuckles']/passive_effect[@name='EntityDamage'][@operation='base_set']/@value">10.5</set>
+	<set xpath="/items/item[@name='meleeWpnKnucklesT3SteelKnuckles']/effect_group[@name='meleeWpnKnucklesT3SteelKnuckles']/passive_effect[@name='EntityDamage'][@operation='base_set']/@value">14</set>
+	
+	<set xpath="/items/item[@name='meleeWpnSpearT0StoneSpear']/effect_group[@name='meleeWpnSpearT0StoneSpear']/passive_effect[@name='EntityDamage'][@operation='base_set']/@value">11.5</set>
+	<set xpath="/items/item[@name='meleeWpnSpearT1IronSpear']/effect_group[@name='meleeWpnSpearT1IronSpear']/passive_effect[@name='EntityDamage'][@operation='base_set']/@value">15</set>
+	<set xpath="/items/item[@name='meleeWpnSpearT3SteelSpear']/effect_group[@name='meleeWpnSpearT3SteelSpear']/passive_effect[@name='EntityDamage'][@operation='base_set']/@value">20</set>
+	
+	<set xpath="/items/item[@name='meleeWpnBatonT2StunBaton']/effect_group[@name='meleeWpnBatonT2StunBaton']/passive_effect[@name='EntityDamage'][@operation='base_set']/@value">14</set>
+	
+	<set xpath="/items/item[@name='meleeWpnClubT0WoodenClub']/effect_group[@name='meleeWpnClubT0WoodenClub']/passive_effect[@name='EntityDamage'][@operation='base_set']/@value">14.5</set>
+	<set xpath="/items/item[@name='meleeWpnClubT1BaseballBat']/effect_group[@name='meleeWpnClubT1BaseballBat']/passive_effect[@name='EntityDamage'][@operation='base_set']/@value">19</set>
+	<set xpath="/items/item[@name='meleeWpnClubT3SteelClub']/effect_group[@name='meleeWpnClubT3SteelClub']/passive_effect[@name='EntityDamage'][@operation='base_set']/@value">27</set>
+	
+	<set xpath="/items/item[@name='meleeWpnBladeT0BoneKnife']/effect_group[@name='meleeWpnBladeT0BoneKnife']/passive_effect[@name='EntityDamage'][@operation='base_set']/@value">7.5</set>
+	<set xpath="/items/item[@name='meleeWpnBladeT1HuntingKnife']/effect_group[@name='meleeWpnBladeT1HuntingKnife']/passive_effect[@name='EntityDamage'][@operation='base_set']/@value">12.5</set>
+	<set xpath="/items/item[@name='meleeWpnBladeT3Machete']/effect_group[@name='meleeWpnBladeT3Machete']/passive_effect[@name='EntityDamage'][@operation='base_set']/@value">20</set>
+	
+    <!-- Nerf to stamina cost of sledgehammers, try to bring their strength cost in line with other options -->
+
+	<set xpath="/items/item[@name='meleeWpnSledgeT0StoneSledgehammer']/effect_group[@name='meleeWpnSledgeT0StoneSledgehammer']/passive_effect[@name='StaminaLoss'][@operation='base_set']/@value">25</set>
+	<set xpath="/items/item[@name='meleeWpnSledgeT0StoneSledgehammer']/effect_group[@name='meleeWpnSledgeT0StoneSledgehammer']/passive_effect[@name='EntityDamage'][@operation='base_set']/@value">18</set>
+	<set xpath="/items/item[@name='meleeWpnSledgeT0StoneSledgehammer']/effect_group[@name='Power Attack']/passive_effect[@name='StaminaLoss'][@operation='base_set']/@value">50</set>
+	
+	<set xpath="/items/item[@name='meleeWpnSledgeT1IronSledgehammer']/effect_group[@name='meleeWpnSledgeT1IronSledgehammer']/passive_effect[@name='StaminaLoss'][@operation='base_set']/@value">35</set>
+	<set xpath="/items/item[@name='meleeWpnSledgeT1IronSledgehammer']/effect_group[@name='meleeWpnSledgeT1IronSledgehammer']/passive_effect[@name='EntityDamage'][@operation='base_set']/@value">29</set>
+	<set xpath="/items/item[@name='meleeWpnSledgeT1IronSledgehammer']/effect_group[@name='Power Attack']/passive_effect[@name='StaminaLoss'][@operation='base_set']/@value">70</set>
+	
+	<set xpath="/items/item[@name='meleeWpnSledgeT3SteelSledgehammer']/effect_group[@name='meleeWpnSledgeT3SteelSledgehammer']/passive_effect[@name='StaminaLoss'][@operation='base_set']/@value">45</set>
+	<set xpath="/items/item[@name='meleeWpnSledgeT3SteelSledgehammer']/effect_group[@name='meleeWpnSledgeT3SteelSledgehammer']/passive_effect[@name='EntityDamage'][@operation='base_set']/@value">45</set>
+	<set xpath="/items/item[@name='meleeWpnSledgeT3SteelSledgehammer']/effect_group[@name='Power Attack']/passive_effect[@name='StaminaLoss'][@operation='base_set']/@value">90</set>
+	
+	<!-- Small buff to bows/crossbows to make them feel better as alternatives to weapons -->
+	<set xpath="/items/item[@name='gunBowT0PrimitiveBow']/effect_group[@name='gunBowT0PrimitiveBow']/passive_effect[@name='EntityDamage'][@operation='base_add']/@value">-4</set>
+	<set xpath="/items/item[@name='gunBowT1WoodenBow']/effect_group[@name='gunBowT1WoodenBow']/passive_effect[@name='EntityDamage'][@operation='base_add']/@value">-2</set>
+	
+	<set xpath="/items/item[@name='gunBowT1IronCrossbow']/effect_group[@name='gunBowT1IronCrossbow']/passive_effect[@name='EntityDamage'][@operation='base_add']/@value">-4</set>
+	
+	<!-- Vitamins now craftable, unlocks by Physician. -->
+	<append xpath="/items/item[@name='drugVitamins']">
+		<property name="UnlockedBy" value="perkPhysician"/>
+	</append>
+	
+	<!-- Nerf to meat based foods so they all have low risk of dysentery -->
+	
+	<!-- Raw Meat and Rotting Flesh -->
+	<set xpath="/items/item[@name='foodRottingFlesh']/effect_group[@name='Food Tier 0']/display_value[@name='dDysenteryRisk']/@value">0.5</set>
+	<set xpath="/items/item[@name='foodRottingFlesh']/effect_group[@name='Food Tier 0']/triggered_effect[@trigger='onSelfPrimaryActionEnd' and @action='ModifyCVar' 
+	and @cvar='.DiseaseRoll' and @operation='set']/@value">50</set>
+	<set xpath="/items/item[@name='foodRawMeat']/effect_group[@name='Food Tier 0']/display_value[@name='dDysenteryRisk']/@value">0.3</set>
+	<set xpath="/items/item[@name='foodRawMeat']/effect_group[@name='Food Tier 0']/triggered_effect[@trigger='onSelfPrimaryActionEnd' and @action='ModifyCVar' 
+	and @cvar='.DiseaseRoll' and @operation='set']/@value">30</set>
+	
+	<!-- Tier 0 Food -->
+	<append xpath="/items/item[@name='foodCanBeef' or @name='foodCanChicken' or @name='foodCanLamb' or @name='foodCanCatfood' or @name='foodCanDogfood'
+	or @name='foodCanChili' or @name='foodCanTuna' or @name='foodCanSham' or @name='foodCanPasta' or @name='foodCanSalmon']/effect_group[@name='Food Tier 0']">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="2"/><display_value name="dDysenteryRisk" value=".02"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="add" value="@$MetabolismResist"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDysenteryCatchFood">
+			<requirement name="RandomRoll" seed_type="Random" min_max="1,100" operation="LTE" value="@.DiseaseRoll"/>
+		</triggered_effect>
+	</append>
+	
+	<!-- Tier 1 Food -->
+	<append xpath="/items/item[@name='foodGrilledMeat' or @name='foodBoiledMeat' or @name='foodBaconAndEggs']/effect_group[@name='Food Tier 1']">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="3"/><display_value name="dDysenteryRisk" value=".03"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="add" value="@$MetabolismResist"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDysenteryCatchFood">
+			<requirement name="RandomRoll" seed_type="Random" min_max="1,100" operation="LTE" value="@.DiseaseRoll"/>
+		</triggered_effect>
+	</append>
+	
+	<!-- Tier 2 Food -->
+	<append xpath="/items/item[@name='foodMeatStew' or @name='foodSteakAndPotato']/effect_group[@name='Food Tier 2']">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="8"/><display_value name="dDysenteryRisk" value=".08"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="add" value="@$MetabolismResist"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDysenteryCatchFood">
+			<requirement name="RandomRoll" seed_type="Random" min_max="1,100" operation="LTE" value="@.DiseaseRoll"/>
+		</triggered_effect>
+	</append>
+	
+	<!-- Tier 3 Food -->
+	<append xpath="/items/item[@name='foodFishTacos' or @name='foodShamChowder' or @name='foodHoboStew' or @name='foodChiliDog']/effect_group[@name='Food Tier 3']">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="5"/><display_value name="dDysenteryRisk" value=".05"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="add" value="@$MetabolismResist"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDysenteryCatchFood">
+			<requirement name="RandomRoll" seed_type="Random" min_max="1,100" operation="LTE" value="@.DiseaseRoll"/>
+		</triggered_effect>
+	</append>
+	
+	<!-- Tier 4 Food Untouched -->
+	
+	<!-- Nerf traders by increasing the cost of higher tier goods to avoid early stage skipping being too easy -->
+	<!-- Forge Tool Markups -->
+	<set xpath="/items/item[@name='toolForgeCrucible']/property[@name='EconomicValue']/@value">50000</set>
+	
+	<!-- Harvest Tool Markups -->
+	<set xpath="/items/item[@name='meleeToolRepairT1ClawHammer']/property[@name='EconomicValue']/@value">750</set>
+	<set xpath="/items/item[@name='meleeToolRepairT3Nailgun']/property[@name='EconomicValue']/@value">7500</set>
+	
+	<set xpath="/items/item[@name='meleeToolAxeT1IronFireaxe']/property[@name='EconomicValue']/@value">750</set>
+	<set xpath="/items/item[@name='meleeToolAxeT2SteelAxe']/property[@name='EconomicValue']/@value">5000</set>
+	
+	<set xpath="/items/item[@name='meleeToolPickT1IronPickaxe']/property[@name='EconomicValue']/@value">750</set>
+	<set xpath="/items/item[@name='meleeToolPickT2SteelPickaxe']/property[@name='EconomicValue']/@value">5000</set>
+	
+	<set xpath="/items/item[@name='meleeToolShovelT1IronShovel']/property[@name='EconomicValue']/@value">750</set>
+	<set xpath="/items/item[@name='meleeToolShovelT2SteelShovel']/property[@name='EconomicValue']/@value">5000</set>
+	
+	<!-- Gas Harvest Tool Markups -->
+	<set xpath="/items/item[@name='meleeToolAxeT3Chainsaw']/property[@name='EconomicValue']/@value">10000</set>
+	<set xpath="/items/item[@name='meleeToolPickT3Auger']/property[@name='EconomicValue']/@value">10000</set>
+	
+	<!-- Salvage Tool Markups -->
+	<set xpath="/items/item[@name='meleeToolSalvageT1Wrench']/property[@name='EconomicValue']/@value">750</set>
+	<set xpath="/items/item[@name='meleeToolSalvageT2Ratchet']/property[@name='EconomicValue']/@value">5000</set>
+	<set xpath="/items/item[@name='meleeToolSalvageT3ImpactDriver']/property[@name='EconomicValue']/@value">10000</set>
+	
+	<!-- Vehicle Markups -->
+	<set xpath="/items/item[@name='vehicleBicycleChassis' or @name='vehicleBicycleHandlebars']/property[@name='EconomicValue']/@value">2000</set>
+	<set xpath="/items/item[@name='vehicleBicyclePlaceable']/property[@name='EconomicValue']/@value">7500</set>
+	<append xpath="/items/item[@name='vehicleBicycleChassisSchematic' or @name='vehicleBicycleHandlebarsSchematic']">
+		<property name="EconomicValue" value="2000"/>
+	</append>
+	
+	<set xpath="/items/item[@name='vehicleMinibikeChassis' or @name='vehicleMinibikeHandlebars']/property[@name='EconomicValue']/@value">4000</set>
+	<set xpath="/items/item[@name='vehicleMinibikePlaceable']/property[@name='EconomicValue']/@value">12500</set>
+	<append xpath="/items/item[@name='vehicleMinibikeChassisSchematic' or @name='vehicleMinibikeHandlebarsSchematic']">
+		<property name="EconomicValue" value="4000"/>
+	</append>
+	
+	<set xpath="/items/item[@name='vehicleMotorcycleChassis' or @name='vehicleMotorcycleHandlebars']/property[@name='EconomicValue']/@value">15000</set>
+	<set xpath="/items/item[@name='vehicleMotorcyclePlaceable']/property[@name='EconomicValue']/@value">40000</set>
+	<append xpath="/items/item[@name='vehicleMotorcycleChassisSchematic' or @name='vehicleMotorcycleHandlebarsSchematic']">
+		<property name="EconomicValue" value="6000"/>
+	</append>
+
+	<set xpath="/items/item[@name='vehicle4x4TruckChassis' or @name='vehicle4x4TruckAccessories']/property[@name='EconomicValue']/@value">25000</set>
+	<set xpath="/items/item[@name='vehicle4x4TruckPlaceable']/property[@name='EconomicValue']/@value">60000</set>
+	<append xpath="/items/item[@name='vehicle4x4TruckChassisSchematic' or @name='vehicle4x4TruckAccessoriesSchematic']">
+		<property name="EconomicValue" value="8000"/>
+	</append>
+	
+	<set xpath="/items/item[@name='vehicleGyroCopterChassis' or @name='vehicleGyroCopterAccessories']/property[@name='EconomicValue']/@value">30000</set>
+	<set xpath="/items/item[@name='vehicleGyrocopterPlaceable']/property[@name='EconomicValue']/@value">70000</set>
+	<append xpath="/items/item[@name='vehicleGyroCopterChassisSchematic' or @name='vehicleGyroCopterAccessoriesSchematic']">
+		<property name="EconomicValue" value="10000"/>
+	</append>
+	
+	<!-- Gun Parts Markups -->
+	<append xpath="/items/item[@name='gunHandgunT1PistolParts']">
+		<property name="EconomicValue" value="200"/>
+	</append>
+	
+	<append xpath="/items/item[@name='gunShotgunT1DoubleBarrelParts']">
+		<property name="EconomicValue" value="200"/>
+	</append>
+	
+	<append xpath="/items/item[@name='gunRifleT1HuntingRifleParts']">
+		<property name="EconomicValue" value="200"/>
+	</append>
+	
+	<set xpath="/items/item[@name='gunMGT1AK47Parts']/property[@name='EconomicValue']/@value">200</set>
+	
+	<set xpath="/items/item[@name='gunExplosivesT3RocketLauncherParts']/property[@name='EconomicValue']/@value">400</set>
+	
+	<append xpath="/items/item[@name='gunBowT1WoodenBowParts']">
+		<property name="EconomicValue" value="150"/>
+	</append>
+	
+	<!-- Gun Markups -->
+	<set xpath="/items/item[@name='gunHandgunT1Pistol']/property[@name='EconomicValue']/@value">2500</set>
+	<append xpath="/items/item[@name='gunHandgunT1PistolSchematic']">
+		<property name="EconomicValue" value="2500"/>
+	</append>
+	<set xpath="/items/item[@name='gunHandgunT3SMG5']/property[@name='EconomicValue']/@value">12500</set>
+	<append xpath="/items/item[@name='gunHandgunT3SMG5Schematic']">
+		<property name="EconomicValue" value="7500"/>
+	</append>
+	
+	<set xpath="/items/item[@name='gunHandgunT2Magnum44']/property[@name='EconomicValue']/@value">12500</set>
+	<append xpath="/items/item[@name='gunHandgunT2Magnum44Schematic']">
+		<property name="EconomicValue" value="5000"/>
+	</append>
+	<set xpath="/items/item[@name='gunHandgunT3DesertVulture']/property[@name='EconomicValue']/@value">40000</set>
+	<append xpath="/items/item[@name='gunHandgunT3DesertVultureSchematic']">
+		<property name="EconomicValue" value="7500"/>
+	</append>
+	
+	<set xpath="/items/item[@name='gunShotgunT0Blunderbuss']/property[@name='EconomicValue']/@value">1000</set>
+	<set xpath="/items/item[@name='gunShotgunT1DoubleBarrel']/property[@name='EconomicValue']/@value">2500</set>
+	<append xpath="/items/item[@name='gunShotgunT1DoubleBarrelSchematic']">
+		<property name="EconomicValue" value="2500"/>
+	</append>
+	<set xpath="/items/item[@name='gunShotgunT2PumpShotgun']/property[@name='EconomicValue']/@value">12500</set>
+	<append xpath="/items/item[@name='gunShotgunT2PumpShotgunSchematic']">
+		<property name="EconomicValue" value="5000"/>
+	</append>
+	<set xpath="/items/item[@name='gunShotgunT3AutoShotgun']/property[@name='EconomicValue']/@value">40000</set>
+	<append xpath="/items/item[@name='gunShotgunT3AutoShotgunSchematic']">
+		<property name="EconomicValue" value="7500"/>
+	</append>
+	
+	<set xpath="/items/item[@name='gunRifleT1HuntingRifle']/property[@name='EconomicValue']/@value">2500</set>
+	<append xpath="/items/item[@name='gunRifleT1HuntingRifleSchematic']">
+		<property name="EconomicValue" value="2500"/>
+	</append>
+	<set xpath="/items/item[@name='gunRifleT2MarksmanRifle']/property[@name='EconomicValue']/@value">12500</set>
+	<append xpath="/items/item[@name='gunRifleT2MarksmanRifleSchematic']">
+		<property name="EconomicValue" value="5000"/>
+	</append>
+	<set xpath="/items/item[@name='gunRifleT3SniperRifle']/property[@name='EconomicValue']/@value">40000</set>
+	<append xpath="/items/item[@name='gunRifleT3SniperRifleSchematic']">
+		<property name="EconomicValue" value="7500"/>
+	</append>
+	
+	<set xpath="/items/item[@name='gunMGT1AK47']/property[@name='EconomicValue']/@value">2500</set>
+	<append xpath="/items/item[@name='gunMGT1AK47Schematic']">
+		<property name="EconomicValue" value="2500"/>
+	</append>
+	<set xpath="/items/item[@name='gunMGT2TacticalAR']/property[@name='EconomicValue']/@value">12500</set>
+	<append xpath="/items/item[@name='gunMGT2TacticalARSchematic']">
+		<property name="EconomicValue" value="5000"/>
+	</append>
+	<set xpath="/items/item[@name='gunMGT3M60']/property[@name='EconomicValue']/@value">40000</set>
+	<append xpath="/items/item[@name='gunMGT3M60Schematic']">
+		<property name="EconomicValue" value="7500"/>
+	</append>
+	
+	<set xpath="/items/item[@name='gunExplosivesT3RocketLauncher']/property[@name='EconomicValue']/@value">40000</set>
+	
+	<set xpath="/items/item[@name='gunBowT0PrimitiveBow']/property[@name='EconomicValue']/@value">200</set>
+	<set xpath="/items/item[@name='gunBowT1WoodenBow']/property[@name='EconomicValue']/@value">400</set>
+	<set xpath="/items/item[@name='gunBowT3CompoundBow']/property[@name='EconomicValue']/@value">12500</set>
+	
+	<set xpath="/items/item[@name='gunBowT1IronCrossbow']/property[@name='EconomicValue']/@value">1000</set>
+	<set xpath="/items/item[@name='gunBowT3CompoundCrossbow']/property[@name='EconomicValue']/@value">12500</set>
+	
+	<!-- Turret Markups -->
+	<set xpath="/items/item[@name='gunBotT1JunkSledge']/property[@name='EconomicValue']/@value">1000</set>
+	<set xpath="/items/item[@name='gunBotT2JunkTurret']/property[@name='EconomicValue']/@value">2500</set>
+	
+	<!-- Resource Markups -->
+	<set xpath="/items/item[@name='resourceForgedSteel']/property[@name='EconomicValue']/@value">100</set>
+	<set xpath="/items/item[@name='resourceSpring']/property[@name='EconomicValue']/@value">50</set>
+	<set xpath="/items/item[@name='resourceScrapPolymers']/property[@name='EconomicValue']/@value">25</set>
+	
+
+</NavezganeExiles>

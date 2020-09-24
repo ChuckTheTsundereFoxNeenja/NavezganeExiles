@@ -1,0 +1,85 @@
+<NavezganeExiles>
+
+    <!-- Vitamins unlocked at Physician Rank 3, roughly same level req as the food recipes with 0 dysentery risk -->
+    <set xpath="/progression/perks/perk[@name='perkPhysician']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='3,4']/@tags">medicalFirstAidKit,drugSteroids,drugVitamins</set>
+	
+	<!-- New book series based around making tools better as weapons -->
+	<append xpath="/progression/skills">
+		<skill name="skillRogueWorker" parent="attBooks" name_key="perkRogueWorker0Name" desc_key="perkRogueWorker0Desc" long_desc_key="perkBookGroupLongDesc" icon="ui_game_symbol_hammer"><effect_group/></skill>
+	</append>
+	
+	<insertAfter xpath="/progression/perks/perk[@name='perkSpearHunter8Complete']">
+		
+		<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+		<perk name="perkRogueWorker1BrainPicker" parent="skillRogueWorker" max_level="1" base_skill_point_cost="0" name_key="bookRogueWorker1BrainPicker" desc_key="perkRogueWorker1BrainPickerDesc" long_desc_key="perkRogueWorker1BrainPickerLongDesc">
+			<!-- Do 15% more damage with all tools. -->
+			<effect_group>
+				<requirement name="ItemHasTags" tags="tool"/>
+					<passive_effect name="EntityDamage" operation="perc_add" level="1" value=".15" tags="perkMiner69r"/>
+			</effect_group>
+		</perk>
+		<perk name="perkRogueWorker2ConstructedHomicide" parent="skillRogueWorker" max_level="1" base_skill_point_cost="0" name_key="bookRogueWorker2ConstructedHomicide" desc_key="perkRogueWorker2ConstructedHomicideDesc" long_desc_key="perkRogueWorker2ConstructedHomicideLongDesc">
+			<!-- Construction tools swing 25% faster. -->
+			<effect_group>
+				<requirement name="ItemHasTags" tags="constructionTool"/>
+					<passive_effect name="AttacksPerMinute" operation="perc_add" level="1" value=".25" tags="perkMiner69r"/>
+			</effect_group>
+		</perk>
+		<perk name="perkRogueWorker3BoneExcavation" parent="skillRogueWorker" max_level="1" base_skill_point_cost="0" name_key="bookRogueWorker3BoneExcavation" desc_key="perkRogueWorker3BoneExcavationDesc" long_desc_key="perkRogueWorker3BoneExcavationLongDesc">
+			<!-- Tools have a 20% chance when hitting legs to slow the target for 8 seconds. The chance is doubled for power attacks -->
+			<effect_group>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="AddBuff" target="other" buff="buffInjuryStunned03">
+					<requirement name="ItemHasTags" tags="tool"/>
+					<requirement name="ProgressionLevel" progression_name="perkRogueWorker3BoneExcavation" operation="Equals" value="1"/>
+					<requirement name="HitLocation" body_parts="LeftUpperLeg,RightUpperLeg,LeftLowerLeg,RightLowerLeg"/>
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="AddBuff" target="other" buff="buffInjuryStunned03">
+					<requirement name="ItemHasTags" tags="tool"/>
+					<requirement name="ProgressionLevel" progression_name="perkRogueWorker3BoneExcavation" operation="Equals" value="1"/>
+					<requirement name="HitLocation" body_parts="LeftUpperLeg,RightUpperLeg,LeftLowerLeg,RightLowerLeg"/>
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+				</triggered_effect>
+			</effect_group>
+		</perk>
+		<perk name="perkRogueWorker4WastelandRescue" parent="skillRogueWorker" max_level="1" base_skill_point_cost="0" name_key="bookRogueWorker4WastelandRescue" desc_key="perkRogueWorker4WastelandRescueDesc" long_desc_key="perkRogueWorker4WastelandRescueLongDesc">
+			<!-- Tools deal 15% increased block damage while in the wasteland. -->
+			<effect_group>
+				<requirement name="ItemHasTags" tags="tool"/>
+				<requirement name="InBiome" biome="8"/>
+					<passive_effect name="BlockDamage" operation="perc_add" level="1" value=".15"/>
+			</effect_group>
+		</perk>
+		<perk name="perkRogueWorker5DeadlyInnovation" parent="skillRogueWorker" max_level="1" base_skill_point_cost="0" name_key="bookRogueWorker5DeadlyInnovation" desc_key="perkRogueWorker5DeadlyInnovationDesc" long_desc_key="perkRogueWorker5DeadlyInnovationLongDesc">
+			<!-- Learn to crafted Treated Steel Axe/Pickaxe/Shovel. Much better entity damage, not much better block damage -->
+			<effect_group>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1" value="1" tags="meleeToolPickT4TreatedSteelPickaxe,meleeToolShovelT4TreatedSteelShovel,meleeToolAxeT4TreatedSteelAxe"/>
+			</effect_group>
+		</perk>
+		<perk name="perkRogueWorker6IndustrialApproach" parent="skillRogueWorker" max_level="1" base_skill_point_cost="0" name_key="bookRogueWorker6IndustrialApproach" desc_key="perkRogueWorker6IndustrialApproachDesc" long_desc_key="perkRogueWorker6IndustrialApproachLongDesc">
+			<!-- Tools use 10% less stamina while wearing gothic pants -->
+			<effect_group>
+				<!-- Effect is on ApparelGothPants -->
+			</effect_group>
+		</perk>
+		<perk name="perkRogueWorker7WorkersWill" parent="skillRogueWorker" max_level="1" base_skill_point_cost="0" name_key="bookRogueWorker7WorkersWill" desc_key="perkRogueWorker7WorkersWillDesc" long_desc_key="perkRogueWorker7WorkersWillLongDesc">
+			<!-- Tools deal 20% increased damage to enemies under half health. -->
+			<effect_group>
+				<requirement name="ItemHasTags" tags="tool"/>
+				<requirement name="StatComparePercCurrentToMax" target="other" stat="Health" operation="LTE" value="0.5"/>
+					<passive_effect name="EntityDamage" operation="perc_add" level="1" value=".2" tags="perkMiner69r"/>
+			</effect_group>
+		</perk>
+		<perk name="perkRogueWorker8Complete" parent="skillRogueWorker" max_level="1" base_skill_point_cost="0" name_key="perkRogueWorker8CompleteName"  desc_key="perkRogueWorker8CompleteDesc" long_desc_key="perkRogueWorker8CompleteLongDesc">
+			<!-- Killing with a tool boosts your block damage by 25% for 30 seconds -->
+			<effect_group>
+				<triggered_effect trigger="onSelfKilledOther" action="AddBuff" buff="buffRogueWorkerComplete">
+					<requirement name="ItemHasTags" tags="tool"/>
+					<requirement name="ProgressionLevel" progression_name="perkRogueWorker8Complete" operation="Equals" value="1"/>
+				</triggered_effect>
+			</effect_group>
+		</perk>
+	
+	</insertAfter>
+
+</NavezganeExiles>

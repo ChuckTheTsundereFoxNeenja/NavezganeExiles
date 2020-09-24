@@ -1,0 +1,30 @@
+<NavezganeExiles>
+
+	<!-- Increased number of trader quests required to progress for each tier -->
+	<!-- <set xpath="/quests/@quests_per_tier">15</set> -->
+
+    <!-- Readjusted trader quest duke rewards -->
+	<set xpath="/quests/quest[@id='tier1_fetch']/reward[@type='Item' and @id='casinoCoin']/@value">250</set>
+	<set xpath="/quests/quest[@id='tier2_fetch']/reward[@type='Item' and @id='casinoCoin']/@value">500</set>
+	<set xpath="/quests/quest[@id='tier3_fetch']/reward[@type='Item' and @id='casinoCoin']/@value">750</set>
+	<set xpath="/quests/quest[@id='tier4_fetch']/reward[@type='Item' and @id='casinoCoin']/@value">1000</set>
+	<set xpath="/quests/quest[@id='tier5_fetch']/reward[@type='Item' and @id='casinoCoin']/@value">1250</set>
+	<set xpath="/quests/quest[@id='tier6_fetch']/reward[@type='Item' and @id='casinoCoin']/@value">1500</set>
+	
+	<set xpath="/quests/quest[@id='tier1_clear']/reward[@type='Item' and @id='casinoCoin']/@value">350</set>
+	<set xpath="/quests/quest[@id='tier2_clear']/reward[@type='Item' and @id='casinoCoin']/@value">700</set>
+	<set xpath="/quests/quest[@id='tier3_clear']/reward[@type='Item' and @id='casinoCoin']/@value">1050</set>
+	<set xpath="/quests/quest[@id='tier4_clear']/reward[@type='Item' and @id='casinoCoin']/@value">1400</set>
+	<set xpath="/quests/quest[@id='tier5_clear']/reward[@type='Item' and @id='casinoCoin']/@value">1750</set>
+	<set xpath="/quests/quest[@id='tier6_clear']/reward[@type='Item' and @id='casinoCoin']/@value">2100</set>
+	
+	<set xpath="/quests/quest[@id='tier2_fetch_clear']/reward[@type='Item' and @id='casinoCoin']/@value">750</set>
+	<set xpath="/quests/quest[@id='tier3_fetch_clear']/reward[@type='Item' and @id='casinoCoin']/@value">1100</set>
+	<set xpath="/quests/quest[@id='tier4_fetch_clear']/reward[@type='Item' and @id='casinoCoin']/@value">1450</set>
+	<set xpath="/quests/quest[@id='tier5_fetch_clear']/reward[@type='Item' and @id='casinoCoin']/@value">1800</set>
+	<set xpath="/quests/quest[@id='tier6_fetch_clear']/reward[@type='Item' and @id='casinoCoin']/@value">2150</set>
+	
+	<set xpath="/quests/quest[@id='tier1_buried_supplies']/reward[@type='Item' and @id='casinoCoin']/@value">400</set>
+	<set xpath="/quests/quest[@id='tier2_buried_supplies']/reward[@type='Item' and @id='casinoCoin']/@value">800</set>
+    
+</NavezganeExiles>

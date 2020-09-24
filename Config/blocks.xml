@@ -1,0 +1,1338 @@
+<NavezganeExiles>
+
+	<!-- Makes wine barrels lootable again :) -->
+	<append xpath="/blocks/block[@name='wineBarrel']">
+		<property name="Class" value="Loot"/>
+		<property name="LootList" value="143"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='wineBarrel']/property[@name='FilterTags']/@value">,floot</append>
+	
+	<!-- Makes ice machines lootable -->
+	<append xpath="/blocks/block[@name='cntIceMachine']">
+		<property name="Class" value="Loot"/>
+		<property name="LootList" value="144"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='cntIceMachine']/property[@name='FilterTags']/@value">,floot</append>
+	
+	<!-- Added some missing trash cans to the existing helpers -->
+	<append xpath="/blocks/block[@name='metalFurnitureBlockVariantHelper']/property[@name='PlaceAltBlockValue']/@value">,cntDomedTrashCanEmpty,cntFancyGarbageCan</append>
+	
+	<!-- Added some missing awning blocks to the existing helpers -->
+	<append xpath="/blocks/block[@name='awningBlockVariantHelper']/property[@name='PlaceAltBlockValue']/@value">,awningRampSheetCNRInside,awningCTRSheet</append>
+	
+	<!-- Added some missing bulletproof blocks to the existing helpers -->
+	<append xpath="/blocks/block[@name='glassBulletproofBlockVariantHelper']/property[@name='PlaceAltBlockValue']/@value">,glassBulletproofRampSheet,glassOpaqueBulletproofPlate,glassOpaqueBulletproofCTRPlate</append>
+	
+	<!-- Added some missing industrial glass blocks to the existing helpers -->
+	<append xpath="/blocks/block[@name='glassBlockVariantHelper']/property[@name='PlaceAltBlockValue']/@value">,glassIndustrial02Broken01CTRPlate,glassIndustrial02Broken02CTRPlate,glassIndustrial02Broken01Plate,glassIndustrial02Broken02Plate</append>
+	
+	<!-- Added SCTR Pole to the existing helpers -->
+	<append xpath="/blocks/block[@name='brickBlockVariantHelper']/property[@name='PlaceAltBlockValue']/@value">,brickPoleSCTR</append>
+	<append xpath="/blocks/block[@name='woodFrameBlockVariantHelper']/property[@name='PlaceAltBlockValue']/@value">,woodPoleSCTR</append>
+	<append xpath="/blocks/block[@name='flagstoneBlockVariantHelper']/property[@name='PlaceAltBlockValue']/@value">,flagstonePoleSCTR</append>
+	<append xpath="/blocks/block[@name='pouredConcreteBlockVariantHelper']/property[@name='PlaceAltBlockValue']/@value">,pouredConcretePoleSCTR</append>
+	
+	<!-- Added SCTR Wood -> Steel poles versions -->
+	<append xpath="/blocks">
+	
+		<block name="rWoodPoleSCTR">
+			<property name="Extends" value="rWoodMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="rWoodCTRpole"/>
+			<property name="Shape" value="New"/>
+			<property name="LightOpacity" value="0"/>
+			<property name="Model" value="pole_square_centered_side"/>
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<property name="SortOrder2" value="0800"/> <!-- SortShape -->
+			<property name="ImposterExclude" value="true"/>
+			<property name="ImposterDontBlock" value="true"/>
+			<property name="UseGlobalUV" value="Local"/>
+			<property class="UpgradeBlock"> <property name="ToBlock" value="flagstonePoleSCTR"/> </property>
+			<property name="DowngradeBlock" value="woodPoleSCTR"/>
+			<drop event="Fall" count="0" prob="0"/>
+		</block>
+	
+		<block name="flagstonePoleSCTR">
+			<property name="Extends" value="flagstoneMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="flagstoneCTRpole"/>
+			<property name="Shape" value="New"/>
+			<property name="LightOpacity" value="0"/>
+			<property name="Model" value="pole_square_centered_side"/>
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<property name="SortOrder2" value="0800"/> <!-- SortShape -->
+			<property name="ImposterExclude" value="true"/>
+			<property name="ImposterDontBlock" value="true"/>
+			<property name="UseGlobalUV" value="Local"/>
+			<property class="UpgradeBlock"> <property name="ToBlock" value="cobblestonePoleSCTR"/> </property>
+			<drop event="Fall" count="0" prob="0"/>
+			<property name="Group" value="Building,advBuilding"/>
+		</block>
+		
+		<block name="cobblestonePoleSCTR">
+			<property name="Extends" value="cobblestoneMaster"/>
+			<property name="Shape" value="New"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="cobblestoneCTRpole"/>
+			<property name="LightOpacity" value="0"/>
+			<property name="Model" value="pole_square_centered_side"/>
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<property name="SortOrder2" value="0800"/> <!-- SortShape -->
+			<property name="ImposterExclude" value="true"/>
+			<property name="ImposterDontBlock" value="true"/>
+			<property name="UseGlobalUV" value="Local"/>
+			<property class="UpgradeBlock"> <property name="ToBlock" value="pouredConcretePoleSCTR"/> </property>
+			<drop event="Fall" count="0" prob="0"/>
+		</block>
+	
+		<block name="pouredConcretePoleSCTR">
+			<property name="Extends" value="pouredConcreteMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="pouredConcreteCTRpole"/>
+			<property name="Shape" value="New"/>
+			<property name="Model" value="pole_square_centered_side"/> <property name="Place" value="TowardsPlacerInverted"/>
+			<property name="SortOrder2" value="0800"/> <!-- SortShape -->
+			<property name="UpgradeRated.ToBlock" value="concretePoleSCTR"/>
+		</block>
+		
+		<block name="pouredRConcretePoleSCTR">
+			<property name="Extends" value="pouredRConcreteMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="pouredRConcreteCTRpole"/>
+			<property name="Shape" value="New"/>
+			<property name="Path" value="solid"/>
+			<property name="Model" value="pole_square_centered_side"/> <property name="Place" value="TowardsPlacerInverted"/>
+			<property name="SortOrder2" value="0800"/> <!-- SortShape -->
+			<property name="UpgradeRated.ToBlock" value="rConcretePoleSCTR"/>
+		</block>
+
+		<block name="rConcretePoleSCTR">
+			<property name="Extends" value="rConcreteMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="rConcreteCTRpole"/>
+			<property name="Shape" value="New"/>
+			<property name="Path" value="solid"/>
+			<property name="Model" value="pole_square_centered_side"/> <property name="Place" value="TowardsPlacerInverted"/>
+			<property name="SortOrder2" value="0800"/> <!-- SortShape -->
+			<property class="UpgradeBlock"> <property name="ToBlock" value="steelPoleSCTR"/> </property>
+		</block>
+		
+		<block name="steelPoleSCTR">
+			<property name="Extends" value="steelMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="steelCTRpole"/>
+			<property name="Shape" value="New"/>
+			<property name="LightOpacity" value="0"/>
+			<property name="Model" value="pole_square_centered_side"/>
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<property name="SortOrder2" value="0800"/> <!-- SortShape -->
+			<property name="ImposterExclude" value="true"/>
+			<property name="ImposterDontBlock" value="true"/>
+			<property name="Texture" value="356"/>
+			<property name="UseGlobalUV" value="Local"/>
+			<property name="DowngradeBlock" value="rConcretePoleSCTR"/>
+			<drop event="Fall" count="0" prob="0"/>
+		</block>
+	
+	</append>
+	
+	<set xpath="/blocks/block[@name='brickPoleSCTR']/property[@name='Extends']/@value">brickMaster</set>
+	<append xpath="/blocks/block[@name='brickPoleSCTR']">
+		<property class="UpgradeBlock"> <property name="ToBlock" value="pouredConcretePoleSCTR"/> </property>
+	</append>
+
+	<set xpath="/blocks/block[@name='concretePoleSCTR']/property[@name='Extends']/@value">concreteMaster</set>
+	<append xpath="/blocks/block[@name='concretePoleSCTR']">
+		<property class="UpgradeBlock"> <property name="ToBlock" value="pouredRConcretePoleSCTR"/> </property>
+	</append>
+	
+	<set xpath="/blocks/block[@name='woodPoleSCTR']/property[@name='Extends']/@value">woodMaster</set>
+	<append xpath="/blocks/block[@name='woodPoleSCTR']">
+		<property class="UpgradeBlock"> <property name="ToBlock" value="rWoodPoleSCTR"/> </property>
+	</append>
+	
+	<!-- More Expensive to Upgrade/Repair Concrete/Steel -->
+	<set xpath="/blocks/block[@name='concreteMaster']/property[@class='UpgradeBlock']/property[@name='ItemCount']/@value">20</set>
+	<set xpath="/blocks/block[@name='rConcreteMaster']/property[@class='UpgradeBlock']/property[@name='ItemCount']/@value">20</set>
+	
+    <!-- Adjusting economic value of decoration blocks now that they can be crafted-->
+    <append xpath="/blocks/block[@name='signRoadArrowheadApache']">
+		<property name="EconomicValue" value="200"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='signPosterWantedMissing01']">
+		<property name="EconomicValue" value="39"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='signPosterWantedMissing02']">
+		<property name="EconomicValue" value="18"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='signPosterWantedMissing03']">
+		<property name="EconomicValue" value="21"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='signBulletinBoard01' or @name='signBulletinBoard02']">
+		<property name="EconomicValue" value="55"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='signBookSaleAd' or @name='signCigaretteAd' or @name='signLaborDaySaleAd' or @name='signMegaCrushAd']">
+		<property name="EconomicValue" value="35"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='signNotice01' or @name='signNotice02']">
+		<property name="EconomicValue" value="15"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='signNotice03' or @name='signNotice04']">
+		<property name="EconomicValue" value="25"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='signSafetyWorkProtection' or @name='signSale01' or @name='signSale02' or @name='signShamwaySale' or @name='signBread01' or @name='signBread02']">
+		<property name="EconomicValue" value="35"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='signDinersMenu']">
+		<property name="EconomicValue" value="25"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='cntWoodBurningStove']">
+		<property name="EconomicValue" value="200"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='cntToaster']">
+		<property name="EconomicValue" value="400"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='signBathroomSignUnisexWallMount']">
+		<property name="EconomicValue" value="150"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='cntIceMachine']">
+		<property name="EconomicValue" value="1000"/>
+	</append>
+	
+	<!-- cntCoffeeMakerCommercial and cntSodaFountain extends this -->
+	<append xpath="/blocks/block[@name='cntCoffeeMaker']"> 
+		<property name="EconomicValue" value="400"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='garbage_decor1' or @name='garbage_decor2']"> 
+		<property name="EconomicValue" value="100"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='garbage_decor3']"> 
+		<property name="EconomicValue" value="15"/>
+	</append>
+	
+	<!-- cntClothesRackWallEmptyHanger extends this -->
+	<append xpath="/blocks/block[@name='cntClothesRackWallFlat']"> 
+		<property name="EconomicValue" value="35"/>
+	</append>
+	
+	<!-- cntMedicineCabinetFaucetClosed extends this -->
+	<append xpath="/blocks/block[@name='cntMedicineCabinetFaucetOpen']"> 
+		<property name="EconomicValue" value="75"/>
+	</append>
+	
+	<!-- cntMedicineCabinetClosed extends this -->
+	<append xpath="/blocks/block[@name='cntMedicineCabinetOpen']"> 
+		<property name="EconomicValue" value="75"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='fountain']/property[@name='EconomicValue']/@value">100</set>
+	
+	<append xpath="/blocks/block[@name='schoolDesk']">
+		<property name="EconomicValue" value="75"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='decoTableRound']">
+		<property name="EconomicValue" value="50"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='barracksChair']">
+		<property name="EconomicValue" value="50"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='decoComputerDeskTopPC' or @name='decoComputerMonitorKeyboardMousePC' or @name='decoComputerMonitorKeyboardMouse' or @name='decoComputerMonitor']">
+		<property name="EconomicValue" value="1000"/>
+	</append>
+	
+	<!-- tv_fallen extends this -->
+	<append xpath="/blocks/block[@name='tv']"> 
+		<property name="EconomicValue" value="500"/>
+	</append>
+	
+	<!-- wallClockBroken extends this -->
+	<append xpath="/blocks/block[@name='wallClock']"> 
+		<property name="EconomicValue" value="600"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='decoPoolTable']">
+		<property name="EconomicValue" value="1500"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='decoReptileTerrarium']/property[@name='EconomicValue']/@value">350</set>
+	
+	<append xpath="/blocks/block[@name='decoClassicDogHouse']">
+		<property name="EconomicValue" value="100"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='decoLargePetCage']">
+		<property name="EconomicValue" value="350"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='decoMetalSlide']">
+		<property name="EconomicValue" value="400"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='decoSwingSet']">
+		<property name="EconomicValue" value="750"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='decoBasketBallHoop']">
+		<property name="EconomicValue" value="50"/>
+	</append>
+	
+	<!-- bunkBedMessy and bunkBedMattress extends this -->
+	<set xpath="/blocks/block[@name='bunkBedMade']/property[@name='EconomicValue']/@value">1000</set> 
+	
+	<append xpath="/blocks/block[@name='bunkBedFrame']">
+		<property name="EconomicValue" value="750"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='gurneyBed']/property[@name='EconomicValue']/@value">1100</set>
+	
+	<append xpath="/blocks/block[@name='hospitalBed']">
+		<property name="EconomicValue" value="1500"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='bodyBagBlack']">
+		<property name="EconomicValue" value="250"/>
+	</append>
+	 
+	<append xpath="/blocks/block[@name='bed01Frame']">
+		<property name="EconomicValue" value="750"/>
+	</append>
+	
+	<!-- cntBathTubGore extends this -->
+	<set xpath="/blocks/block[@name='cntBathTubEmpty']/property[@name='EconomicValue']/@value">225</set> 
+	 
+	<append xpath="/blocks/block[@name='decoClawFootBathTub']">
+		<property name="EconomicValue" value="500"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='cntToolBoxOpen' or @name='cntToolBoxClosed']">
+		<property name="EconomicValue" value="750"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='cntRollingToolBoxOpen' or @name='cntRollingToolBoxClosed']">
+		<property name="EconomicValue" value="1500"/>
+	</append>
+	
+	<!-- storeShelving01Double storeShelving01Top storeShelving01TopDouble extends this -->
+	<set xpath="/blocks/block[@name='storeShelving01']/property[@name='EconomicValue']/@value">50</set> 
+	
+	<!-- cashRegisterConveyorCorner cashRegisterConveyorStraight extends this -->
+	<append xpath="/blocks/block[@name='cashRegisterConveyorMiddle']"> 
+		<property name="EconomicValue" value="325"/>
+	</append>
+
+	<!-- cntGunRackSmallEmpty02 cntGunRackSmallEmpty03 cntGunRackSmallMagazines cntGunRackSmallArmor cntGunRackLargeGuns01 cntGunRackLargeGuns02 extends this -->
+	<append xpath="/blocks/block[@name='cntGunRackSmallEmpty01']"> 
+		<property name="EconomicValue" value="50"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='shootingRangeTarget']"> 
+		<property name="EconomicValue" value="75"/>
+	</append>
+	
+	<!-- decoMannequinMaleBroken decoMannequinFemale decoMannequinFemaleBroken extends this -->
+	<append xpath="/blocks/block[@name='decoMannequinMale']"> 
+		<property name="EconomicValue" value="325"/>
+	</append>
+	
+	<!-- driftwood2 extends this -->
+	<append xpath="/blocks/block[@name='driftwood']"> 
+		<property name="EconomicValue" value="75"/>
+	</append>
+	
+	<!-- modularFireWoodStackB modularFireWoodStackC extends this -->
+	<append xpath="/blocks/block[@name='modularFireWoodStackA']"> 
+		<property name="EconomicValue" value="225"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='decoCowSkull']"> 
+		<property name="EconomicValue" value="75"/>
+	</append>
+	
+	<!-- modularRopeTopTied modularRopeNoose extends this --> 
+	<append xpath="/blocks/block[@name='modularRopeTiled']"> 
+		<property name="EconomicValue" value="15"/>
+	</append>
+	
+	<!-- cinderBlocks02 cinderBlocks03 extends this --> 
+	<append xpath="/blocks/block[@name='cinderBlocks01']"> 
+		<property name="EconomicValue" value="150"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='decoWildWestWagon']"> 
+		<property name="EconomicValue" value="1150"/>
+	</append>
+	
+	<!-- emberPileDeco2 extends this --> 
+	<append xpath="/blocks/block[@name='emberPileDeco1']"> 
+		<property name="EconomicValue" value="150"/>
+	</append>
+	
+	<!-- emberPileDeco4 extends this -->  
+	<append xpath="/blocks/block[@name='emberPileDeco3']"> 
+		<property name="EconomicValue" value="150"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='poleTop01']"> 
+		<property name="EconomicValue" value="2000"/>
+	</append>
+	 
+	<set xpath="/blocks/block[@name='airConditioner']/property[@name='EconomicValue']/@value">2000</set>  
+	
+	<set xpath="/blocks/block[@name='airConditionVentFan']/property[@name='EconomicValue']/@value">1000</set> 
+	
+	<append xpath="/blocks/block[@name='airConditionVentFanDouble']"> 
+		<property name="EconomicValue" value="2000"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='decoHoistChain']"> 
+		<property name="EconomicValue" value="325"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='decoHoistSpreader']"> 
+		<property name="EconomicValue" value="1500"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='decoHoistHook']"> 
+		<property name="EconomicValue" value="650"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='decoHoistTopMount']"> 
+		<property name="EconomicValue" value="650"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='decoHoistMagnet']"> 
+		<property name="EconomicValue" value="850"/>
+	</append>
+	 
+	<append xpath="/blocks/block[@name='decoHandTruck']"> 
+		<property name="EconomicValue" value="650"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='palletWhiteBagsBase' or @name='palletWhiteBagsTile' or @name='palletWhiteBagsTop' or @name='palletWhiteBagsPartial1' or @name='palletWhiteBagsPartial2' or @name='palletWhiteBagsLoose']"> 
+		<property name="EconomicValue" value="125"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='palletBrownBoxesBase' or @name='palletBrownBoxesTile' or @name='palletBrownBoxesTop' or @name='palletBrownBoxesLoose']"> 
+		<property name="EconomicValue" value="600"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='palletBricksBase' or @name='palletBricksTile' or @name='palletBricksTop' or @name='palletBricksPartial1' or @name='palletBricksPartial2' or @name='palletBricksLoose']"> 
+		<property name="EconomicValue" value="350"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='palletBlueTarpBase' or @name='palletBlueTarpTile']"> 
+		<property name="EconomicValue" value="250"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='palletCompressedCardboard']"> 
+		<property name="EconomicValue" value="150"/>
+	</append> 
+	 
+	<append xpath="/blocks/block[@name='crushedCars']"> 
+		<property name="EconomicValue" value="1500"/>
+	</append>
+	
+	<!-- goreBlockHumanCorpse1 goreBlockHumanCorpse2 goreBlockHumanCorpse3 extends this -->
+	<append xpath="/blocks/block[@name='goreBlockHumanCorpse' or @name='goreBlockHumanBones']"> 
+		<property name="EconomicValue" value="80"/>
+	</append>
+	
+	<!-- decoCarBackBumperFlipped decoCarFrontBumperFlat decoCarFrontBumperFlipped extends this -->
+	<append xpath="/blocks/block[@name='decoCarBackBumperUpright']"> 
+		<property name="EconomicValue" value="1350"/>
+	</append>
+	
+	<!-- decoCarFrontDoorFlipped decoCarBackDoorFlat decoCarBackDoorFlipped extends this --> 
+	<append xpath="/blocks/block[@name='decoCarFrontDoorFlat']"> 
+		<property name="EconomicValue" value="150"/>
+	</append>
+	
+	<!-- decoCarRadiatorFlipped extends this -->
+	<append xpath="/blocks/block[@name='decoCarRadiatorFlat']"> 
+		<property name="EconomicValue" value="400"/>
+	</append>
+	
+	<!-- decoCarSeatFlipped extends this --> 
+	<append xpath="/blocks/block[@name='decoCarSeatUpright']"> 
+		<property name="EconomicValue" value="1350"/>
+	</append>
+	
+	<!-- decoCarMotorFlipped extends this --> 
+	<append xpath="/blocks/block[@name='decoCarMotorFlat']"> 
+		<property name="EconomicValue" value="3000"/>
+	</append>
+	
+	<!-- decoCarTrunkLidFlipped extends this --> 
+	<append xpath="/blocks/block[@name='decoCarTrunkLidFlat']"> 
+		<property name="EconomicValue" value="1350"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='decoCarPartsRamp']"> 
+		<property name="EconomicValue" value="1350"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='decoCarTireSmallFlat' or @name='decoCarTireFlat' or @name='decoCarTirePile' or @name='decoCarTireStack']"> 
+		<property name="EconomicValue" value="675"/>
+	</append>
+	 
+	<append xpath="/blocks/block[@name='decoCarWheelFlat']"> 
+		<property name="EconomicValue" value="750"/>
+	</append>
+	
+	<!-- decoCarFenderFlipped decoCarHoodFlipped extends this accordingly -->
+	<append xpath="/blocks/block[@name='decoCarFenderFlat' or @name='decoCarHoodFlat']"> 
+		<property name="EconomicValue" value="1350"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='palletEmptyStack']"> 
+		<property name="EconomicValue" value="80"/>
+	</append>
+	
+	<!-- woodWallStudBroken woodWallStud extends this --> 
+	<append xpath="/blocks/block[@name='woodFloorJoist']"> 
+		<property name="EconomicValue" value="80"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='pictureFrame']"> 
+		<property name="EconomicValue" value="80"/>
+	</append>
+	 
+	<append xpath="/blocks/block[@name='looseBoardsTrapBlock3x3Destroyed']"> 
+		<property name="EconomicValue" value="200"/>
+	</append>
+	 
+	<append xpath="/blocks/block[@name='fakeCabinetDoorTrap1x1Sheet']"> 
+		<property name="EconomicValue" value="100"/>
+	</append>
+	 
+	<append xpath="/blocks/block[@name='fakeCabinetDoorTrap1x2Sheet']"> 
+		<property name="EconomicValue" value="200"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='barStool']/property[@name='EconomicValue']/@value">450</set>
+	 
+	<append xpath="/blocks/block[@name='fakeCabinetDoorTrap1x1SheetMetal']"> 
+		<property name="EconomicValue" value="225"/>
+	</append>
+	 
+	<append xpath="/blocks/block[@name='fakeCabinetDoorTrap1x2SheetMetal']"> 
+		<property name="EconomicValue" value="450"/>
+	</append>
+	 
+	<append xpath="/blocks/block[@name='heatVentIndustrial']"> 
+		<property name="EconomicValue" value="75"/>
+	</append>
+	 
+	<append xpath="/blocks/block[@name='goreBlockAnimal']"> 
+		<property name="EconomicValue" value="100"/>
+	</append>
+	
+	<!-- securityGatePlate extends this -->
+	<set xpath="/blocks/block[@name='securityGateCTRPlate']/property[@name='EconomicValue']/@value">375</set>  
+	
+	<append xpath="/blocks/block[@name='securityGateCTRPlateDiagonal']"> 
+		<property name="EconomicValue" value="375"/>
+	</append> 
+	
+	<!-- concreteBarrier2 concreteBarrier3 extends this -->
+	<append xpath="/blocks/block[@name='concreteBarrier1']"> 
+		<property name="EconomicValue" value="400"/>
+	</append>  
+	
+	<!-- jailDoorStatic jailDoorStaticCentered extends this --> 
+	<append xpath="/blocks/block[@name='jailBars']">
+		<property name="EconomicValue" value="450"/>
+	</append> 
+	
+	<!-- houseFrontDoor1_v2 houseFrontDoor2_v1 houseFrontDoor2_v2 extends this --> 
+	<append xpath="/blocks/block[@name='houseFrontDoor1_v1']">
+		<property name="EconomicValue" value="130"/>
+	</append>  
+	
+	<!-- houseFrontDoor1_v3 houseFrontDoor2_v3 commercialDoor2_v3 commercialDoor4_v3 extends this --> 
+	<append xpath="/blocks/block[@name='commercialDoor1_v3']">
+		<property name="EconomicValue" value="350"/>
+	</append>  
+	
+	<!-- commercialDoor1_v2  commercialDoor2_v1 commercialDoor2_v2  commercialDoor4_v1 commercialDoor4_v2 extends this --> 
+	<append xpath="/blocks/block[@name='commercialDoor1_v1']">
+		<property name="EconomicValue" value="300"/>
+	</append>   
+	
+	<!-- doorFrameWhite2 extends this --> 
+	<append xpath="/blocks/block[@name='doorFrameWhite1']">
+		<property name="EconomicValue" value="35"/>
+	</append> 
+	
+	<!-- doorFrameWhiteBoarded2 extends this -->
+	<append xpath="/blocks/block[@name='doorFrameWhiteBoarded1']">
+		<property name="EconomicValue" value="45"/>
+	</append>
+	
+	<!-- doorFrameMetal2 extends this --> 
+	<append xpath="/blocks/block[@name='doorFrameMetal1']">
+		<property name="EconomicValue" value="75"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='doorFrameMetalBoarded1' or @name='doorFrameMetalBoarded2']">
+		<property name="EconomicValue" value="85"/>
+	</append>
+	
+	<!-- curtain_bottom1Sheet3 extends this -->
+	<set xpath="/blocks/block[@name='curtain_top1Sheet3']/property[@name='EconomicValue']/@value">30</set>
+	
+	<!-- commercialBlindsBottom extends this -->
+	<set xpath="/blocks/block[@name='commercialBlindsTop']/property[@name='EconomicValue']/@value">350</set>
+	
+	<!-- miniblindBottomSheet extends this -->
+	<set xpath="/blocks/block[@name='miniblindTopSheet']/property[@name='EconomicValue']/@value">350</set>
+	 
+	<append xpath="/blocks/block[@name='boardedWindowsSheet4']">
+		<property name="EconomicValue" value="30"/>
+	</append>
+	
+	<!-- woodCrownInsideCorner extends this -->
+	<append xpath="/blocks/block[@name='woodCrown']">
+		<property name="EconomicValue" value="30"/>
+	</append>
+	
+	<!-- plainWoodBarricade02CTRPlate woodBarricadeCTRPlate windowPlug01CTRPlate windowPlug02CTRPlate extends this -->
+	<append xpath="/blocks/block[@name='shutters1Plate' or @name='plywoodOsbCTRPlate' or @name='sidingWhiteBurntCTRPlate' or @name='plainWoodWindowPlugCTRPlate']">
+		<property name="EconomicValue" value="20"/>
+	</append>   
+	
+	<append xpath="/blocks/block[@name='windowPlug04CTRPlate']">
+		<property name="EconomicValue" value="400"/>
+	</append>
+	 
+	<set xpath="/blocks/block[@name='satelliteDish']/property[@name='EconomicValue']/@value">1400</set>
+	 
+	<append xpath="/blocks/block[@name='satelliteDishSmall']">
+		<property name="EconomicValue" value="1400"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='signExitLight' or @name='deskLampLight' or @name='tableLampLight']">
+		<property name="EconomicValue" value="550"/>
+	</append>
+	 
+	<append xpath="/blocks/block[@name='cable1']">
+		<property name="EconomicValue" value="150"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='conduit01' or @name='conduit01Curve' or @name='conduit01End' or @name='conduit01Corner']">
+		<property name="EconomicValue" value="550"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='electricalBox01']">
+		<property name="EconomicValue" value="1250"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='fusebox']/property[@name='EconomicValue']/@value">1000</set> 
+	
+	<!-- paperPillar50 extends this -->
+	<set xpath="/blocks/block[@name='paperPillar100']/property[@name='EconomicValue']/@value">260</set>  
+	
+	<append xpath="/blocks/block[@name='clothPillar100' or @name='clothPillar50']">
+		<property name="EconomicValue" value="150"/>
+	</append>  
+	
+	<append xpath="/blocks/block[@name='cntBarrelGasOld']">
+		<property name="EconomicValue" value="200"/>
+	</append>
+	 
+	<append xpath="/blocks/block[@name='cntWallOven']">
+		<property name="EconomicValue" value="550"/>
+	</append>
+	
+	<!-- cntStoveOldVer2Open extends this --> 
+	<set xpath="/blocks/block[@name='cntStoveOldVer1Closed']/property[@name='EconomicValue']/@value">900</set>
+	
+	<!-- cntGasGrillClosed extends this --> 
+	<append xpath="/blocks/block[@name='cntGasGrillOpen']">
+		<property name="EconomicValue" value="500"/>
+	</append>
+	
+	<!-- cntCharcoalGrillClosed extends this -->
+	<append xpath="/blocks/block[@name='cntCharcoalGrillOpen']">
+		<property name="EconomicValue" value="500"/>
+	</append>
+	 
+	<!-- cntMicrowaveOvenVer1Closed extends this -->
+	<set xpath="/blocks/block[@name='cntMicrowaveOvenVer1Open']/property[@name='EconomicValue']/@value">1100</set>
+	
+	<!-- cntRetroFridgeVer2Open cntFridgeStainlessSteelVer2Open cntFridgeStainlessSteel extends this -->
+	<set xpath="/blocks/block[@name='cntRetroFridgeVer1Closed']/property[@name='EconomicValue']/@value">1500</set>  
+	 
+	<append xpath="/blocks/block[@name='cntCoolerOpen']">
+		<property name="EconomicValue" value="300"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='cntWashingMachine']/property[@name='EconomicValue']/@value">1100</set>
+	
+	<!-- cntWasherClosed cntDryerOpen cntDryerClosed extends this -->
+	<set xpath="/blocks/block[@name='cntWasherOpen']/property[@name='EconomicValue']/@value">1100</set>   
+	 
+	<!-- cntLaundryBasketVer2Full extends this -->
+	<append xpath="/blocks/block[@name='cntLaundryBasketVer1Empty']">
+		<property name="EconomicValue" value="750"/>
+	</append> 
+	
+	<set xpath="/blocks/block[@name='cntTrashCompactor']/property[@name='EconomicValue']/@value">1100</set> 
+	
+	<!-- cntBruteStyleTrashCanFull extends this -->
+	<set xpath="/blocks/block[@name='cntBruteStyleTrashCanEmpty']/property[@name='EconomicValue']/@value">750</set>
+	 
+	<append xpath="/blocks/block[@name='cntDumpster']">
+		<property name="EconomicValue" value="600"/>
+	</append>
+	
+	<!-- cntTiltTruckFull extends this -->
+	<set xpath="/blocks/block[@name='cntTiltTruckEmpty']/property[@name='EconomicValue']/@value">750</set> 
+	 
+	<set xpath="/blocks/block[@name='cntGasPump']/property[@name='EconomicValue']/@value">2000</set> 
+	
+	<append xpath="/blocks/block[@name='cntPillCaseClosed' or @name='cntPillCaseEmpty']">
+		<property name="EconomicValue" value="275"/>
+	</append> 
+	
+	<set xpath="/blocks/block[@name='cntHardenedChestSecure']/property[@name='EconomicValue']/@value">5000</set>
+	
+	<!-- cntWeaponsBagLarge extends this -->
+	<append xpath="/blocks/block[@name='cntWeaponsBagSmall']">
+		<property name="EconomicValue" value="500"/>
+	</append> 
+	
+	<append xpath="/blocks/block[@name='decoStationaryBike']">
+		<property name="EconomicValue" value="800"/>
+	</append> 
+	
+	<append xpath="/blocks/block[@name='decoTreadmill']">
+		<property name="EconomicValue" value="1300"/>
+	</append> 
+	
+	<!-- decoBenchPress extends this -->
+	<append xpath="/blocks/block[@name='decoWeightBar']">
+		<property name="EconomicValue" value="1100"/>
+	</append> 
+	
+	<!-- cntMorticianDrawer extends this --> 
+	<set xpath="/blocks/block[@name='morticianDrawer']/property[@name='EconomicValue']/@value">3000</set>
+	
+	<!-- cntFurnaceDrawer extends this --> 
+	<set xpath="/blocks/block[@name='furnaceDrawer']/property[@name='EconomicValue']/@value">400</set>
+	
+	<!-- cntFileCabinetTallOpen extends this -->
+	<append xpath="/blocks/block[@name='cntFileCabinetShortOpen']">
+		<property name="EconomicValue" value="400"/>
+	</append>
+	
+	<!-- cntFileCabinetTallClosed extends this -->
+	<append xpath="/blocks/block[@name='cntFileCabinetShortClosed']">
+		<property name="EconomicValue" value="400"/>
+	</append>
+	
+	<!-- cntCashRegister cashRegisterScanner extends this --> 
+	<set xpath="/blocks/block[@name='cntCashRegisterEmpty']/property[@name='EconomicValue']/@value">800</set>
+			
+	<set xpath="/blocks/block[@name='cntShoppingCartEmpty']/property[@name='EconomicValue']/@value">550</set>
+	 
+	<append xpath="/blocks/block[@name='cntShoppingCart']">
+		<property name="EconomicValue" value="550"/>
+	</append>
+	
+	<!-- cntShoppingBasket extends this --> 
+	<append xpath="/blocks/block[@name='cntShoppingBasketEmpty']">
+		<property name="EconomicValue" value="375"/>
+	</append>
+	
+	<!-- cntUtilityCartFull cntJanitorCartFull extends this --> 
+	<set xpath="/blocks/block[@name='cntUtilityCartEmpty']/property[@name='EconomicValue']/@value">550</set>
+	
+	<append xpath="/blocks/block[@name='cntStoreElectronicsBookShelfSpeaker']">
+		<property name="EconomicValue" value="900"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='cntStoreElectronicsPalletTvFallen' or @name='cntStoreElectronicsPalletTvStanding']">
+		<property name="EconomicValue" value="925"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='cntVendingMachine2Broken']/property[@name='EconomicValue']/@value">6500</set>
+
+	<append xpath="/blocks/block[@name='cntBirdnest']">
+		<property name="EconomicValue" value="25"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='cntMunitionsBox']/property[@name='EconomicValue']/@value">4750</set>
+	
+	<!-- New Variant Helper blocks to reduce excess recipes -->
+	<append xpath="/blocks">
+	
+		<block name="signBathroomVariantHelper">
+			<property name="Extends" value="signBathroomSignUnisexWallMount"/>
+			<property name="CustomIcon" value="signBathroomSignUnisexWallMount"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="150"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="signBathroomSignUnisexWallMount,signBathroomSignUnisexCeilingMount,signBathroomSignWomenWallMount,signBathroomSignWomenCeilingMount,signBathroomSignMenWallMount,signBathroomSignMenCeilingMount"/>
+		</block>
+	
+		<block name="bodyBagVariantHelper">
+			<property name="Extends" value="bodyBagBlack"/>
+			<property name="CustomIcon" value="bodyBagBlack"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="250"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="bodyBagBlack,bodyBagYellow,bodyBagPile,bodyBagPileMix,bodyBagPair,bodyBagPairYellow,bodyBagPairMixed,bodyBagBlackFlies,bodyBagYellowFlies"/>
+		</block>
+		
+		<block name="cntStoreProduceBasketVariantHelper">
+			<property name="Extends" value="cntStoreProduceBasketCornerEmpty1"/>
+			<property name="CustomIcon" value="cntStoreProduceBasketCornerEmpty1"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="60"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntStoreProduceBasketCornerEmpty1,cntStoreProduceBasketCornerEmpty2,cntStoreProduceBasketEmpty1,cntStoreProduceBasketEmpty2,cntStoreProduceBasketApples1,cntStoreProduceBasketApples2,cntStoreProduceBasketGourds1,cntStoreProduceBasketGourds2,cntStoreProduceBasketlettuce1,cntStoreProduceBasketLettuce2,cntStoreProduceBasketMelons1,cntStoreProduceBasketMelons2"/>
+		</block>
+		
+		<block name="cntStoreShelfFoodVariantHelper">
+			<property name="Extends" value="cntStoreShelfSingleBottomFood01"/>
+			<property name="CustomIcon" value="cntStoreShelfSingleBottomFood01"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="60"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntStoreShelfSingleBottomFood01,cntStoreShelfSingleBottomFood02,cntStoreShelfSingleTopFood01,cntStoreShelfDoubleBottomFood01,cntStoreShelfDoubleBottomFood02,cntStoreShelfDoubleTopFood01"/>
+		</block>
+		
+		<block name="cntStoreShelfHardwareVariantHelper">
+			<property name="Extends" value="cntStoreShelfSingleBottomHardware01"/>
+			<property name="CustomIcon" value="cntStoreShelfSingleBottomHardware01"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="60"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntStoreShelfSingleBottomHardware01,cntStoreShelfSingleBottomHardware02,cntStoreShelfSingleTopHardware01,cntStoreShelfSingleTopHardware02,cntStoreShelfDoubleBottomHardware01,cntStoreShelfDoubleBottomHardware02,cntStoreShelfDoubleBottomHardware03Rags,cntStoreShelfDoubleTopHardware01,cntStoreShelfDoubleTopHardware02Rags"/>
+		</block>
+		
+		<block name="cntStoreShelfPharmaVariantHelper">
+			<property name="Extends" value="cntStoreShelfSingleBottomPharmaGoods01"/>
+			<property name="CustomIcon" value="cntStoreShelfSingleBottomPharmaGoods01"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="60"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntStoreShelfSingleBottomPharmaGoods01,cntStoreShelfSingleBottomPharmaGoods02,cntStoreShelfDoubleBottomPharmaGoods01,cntStoreShelfDoubleBottomPharmaGoods02,cntStoreShelfSingleBottomPharmaEmpty,cntStoreShelfDoubleBottomPharmaEmpty"/>
+		</block>
+		
+		<block name="cntStoreShelfTrashVariantHelper">
+			<property name="Extends" value="cntStoreShelfSingleBottomTrash01"/>
+			<property name="CustomIcon" value="cntStoreShelfSingleBottomTrash01"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="60"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntStoreShelfSingleBottomTrash01,cntStoreShelfSingleBottomTrash02,cntStoreShelfSingleTopTrash01,cntStoreShelfSingleTopTrash02,cntStoreShelfDoubleBottomTrash01,cntStoreShelfDoubleBottomTrash02,cntStoreShelfDoubleTopTrash01"/>
+		</block>
+	
+		<block name="cntStoreShelfElectronicsVariantHelper">
+			<property name="Extends" value="cntStoreShelfElectronicsSingleBottomPC"/>
+			<property name="CustomIcon" value="cntStoreShelfElectronicsSingleBottomPC"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="60"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntStoreShelfElectronicsSingleBottomPC,cntStoreShelfElectronicsSingleBottomElectronicsMonitor,cntStoreShelfElectronicsSingleBottomGoodsMisc,cntStoreShelfElectronicsSingleBottomHeadphones,cntStoreShelfElectronicsSingleBottomKeyboard,cntStoreShelfElectronicsSingleBottomLaptopClosed,cntStoreShelfElectronicsSingleBottomLaptopOpen,cntStoreShelfElectronicsSingleBottomSpeaker,cntStoreShelfElectronicsDoubleBottomGoods01,cntStoreShelfElectronicsDoubleBottomGoods02,cntStoreShelfElectronicsDoubleBottomGoods03,cntStoreShelfElectronicsDoubleBottomGoods04,cntStoreShelfElectronicsDoubleBottomEmpty,cntStoreShelfElectronicsSingleTopEmpty,cntStoreShelfElectronicsDoubleTopEmpty"/>
+		</block>
+		
+		<block name="cntLuggageVariantHelper">
+			<property name="Extends" value="cntLuggageMediumOpen"/>
+			<property name="CustomIcon" value="cntLuggageMediumOpen"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="1250"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntLuggageMediumOpen,cntLuggageMediumClosed,cntLuggageBigOpen,cntLuggageBigClosed,cntLuggagePileAOpen,cntLuggagePileAClosed,cntLuggagePileBOpen,cntLuggagePileBClosed"/>
+		</block>
+	
+		<block name="graveStoneVariantHelper">
+			<property name="Extends" value="graveStone01"/>
+			<property name="CustomIcon" value="graveStone01"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="graveStone01,graveStone02,graveStone03,graveStone04,graveStone05,graveStone06,graveStone07,graveStone08"/>
+			<property name="EconomicValue" value="60"/> <!-- disassemble value -->
+		</block>
+		<!-- Acid - Gas - Generic - Oil - White - Plastic - Radiated -->
+		<block name="cntBarrelAcidVariantHelper">
+			<property name="Extends" value="cntBarrelAcidSingle00"/>
+			<property name="CustomIcon" value="cntBarrelAcidSingle00"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="450"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntBarrelAcidSingle00,cntBarrelAcidSingle45,cntBarrelAcidQuadA,cntBarrelAcidQuadB"/>
+		</block>
+		
+		<block name="cntBarrelGasVariantHelper">
+			<property name="Extends" value="cntBarrelGasSingle00"/>
+			<property name="CustomIcon" value="cntBarrelGasSingle00"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="200"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntBarrelGasSingle00,cntBarrelGasSingle45,cntBarrelGasQuadA,cntBarrelGasQuadB"/>
+		</block>
+		
+		<block name="cntBarrelGenericVariantHelper">
+			<property name="Extends" value="cntBarrelGenericSingle00"/>
+			<property name="CustomIcon" value="cntBarrelGenericSingle00"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="200"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntBarrelGenericSingle00,cntBarrelGenericSingle45,cntBarrelGenericQuadA,cntBarrelGenericQuadB"/>
+		</block>
+		
+		<block name="cntBarrelOilVariantHelper">
+			<property name="Extends" value="cntBarrelOilSingle00"/>
+			<property name="CustomIcon" value="cntBarrelOilSingle00"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="350"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntBarrelOilSingle00,cntBarrelOilSingle45,cntBarrelOilQuadA,cntBarrelOilQuadB"/>
+		</block>
+		
+		<block name="cntBarrelWhiteVariantHelper">
+			<property name="Extends" value="cntBarrelWhiteSingle00"/>
+			<property name="CustomIcon" value="cntBarrelWhiteSingle00"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="200"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntBarrelWhiteSingle00,cntBarrelWhiteSingle45,cntBarrelWhiteQuadA,cntBarrelWhiteQuadB"/>
+		</block>
+		
+		<block name="cntBarrelPlasticVariantHelper">
+			<property name="Extends" value="cntBarrelPlasticSingle00"/>
+			<property name="CustomIcon" value="cntBarrelPlasticSingle00"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="1250"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntBarrelPlasticSingle00,cntBarrelPlasticSingle45,cntBarrelPlasticQuadA,cntBarrelPlasticQuadB"/>
+		</block>
+		
+		<block name="cntBarrelRadiatedVariantHelper">
+			<property name="Extends" value="cntBarrelRadiatedSingle00"/>
+			<property name="CustomIcon" value="cntBarrelRadiatedSingle00"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="200"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntBarrelRadiatedSingle00,cntBarrelRadiatedSingle45,cntBarrelRadiatedQuadA,cntBarrelRadiatedQuadB"/>
+		</block>
+		
+		<block name="woodDoorTrimVariantHelper">
+			<property name="Extends" value="doorTrimTop"/>
+			<property name="CustomIcon" value="doorTrimTop"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="100"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="doorTrimTop,doorTrim2m,doorTrimHalfm,doorTrim1m"/>
+		</block>
+		
+		<block name="corrugatedMetalPillarVariantHelper">
+			<property name="Extends" value="corrugatedMetalPillar0.05"/>
+			<property name="CustomIcon" value="corrugatedMetalPillar0.05"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="200"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="corrugatedMetalPillar0.05,corrugatedMetalPillar0.05CTR,corrugatedMetalPillar0.05SCTR,corrugatedMetalPillar0.025,corrugatedMetalPillar0.025CTR,metalTablePillar0.025CTR,corrugatedMetalPillar0.025SCTR,corrugatedMetalPoleSCTR"/>
+		</block>
+		
+		<block name="ductVariantHelper">
+			<property name="Extends" value="ductSoft"/>
+			<property name="CustomIcon" value="ductSoft"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="200"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="ductSoft,ductSoftCorner,ductControlPanel,ductControlPanelCorner,ductSoftCorner2"/>
+		</block>
+		
+		<block name="moviePosterVariantHelper">
+			<property name="Extends" value="signPosterMovie2159"/>
+			<property name="CustomIcon" value="signPosterMovie2159"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="50"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="signPosterMovie2159,signPosterMovieLoneWolf,signPosterMovieMammasJustice,signPosterMovieSexualTension"/>
+		</block>
+		
+		<block name="moviePosterTheaterVariantHelper">
+			<property name="Extends" value="signPosterMovieTheater2159"/>
+			<property name="CustomIcon" value="signPosterMovieTheater2159"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="60"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="signPosterMovieTheater2159,signPosterMovieTheaterLoneWolf,signPosterMovieTheaterMammasJustice,signPosterMovieTheaterSexualTension"/>
+		</block>
+		
+		<block name="paintingVariantHelper">
+			<property name="Extends" value="paintingBen"/>
+			<property name="CustomIcon" value="paintingBen"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="50"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="paintingBen,paintingLorien,paintingDerek,paintingNoah,paintingDuke,paintingKen"/>
+		</block>
+		
+		<block name="basicWindowVariantHelper">
+			<property name="Extends" value="window02"/>
+			<property name="CustomIcon" value="window02"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="20"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="window02,window02Frame,window02Broken01CTRPlate,window02Broken02CTRPlate,window02Broken03CTRPlate,window03Broke1,window03Broke2,window03Broke3,window03Broke4,window03Frame,window03WoodBroke1,window03WoodBroke2,window03WoodBroke3,window03WoodBroke4,window03Wood,window03WoodFrame,window04,window04Frame"/>
+		</block>
+		
+		<block name="storeWindowEmptyVariantHelper">
+			<property name="Extends" value="windowStoreOneSided"/>
+			<property name="CustomIcon" value="windowStoreOneSided"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="125"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="windowStoreOneSided,windowStoreTwoSided,windowStoreTwoSidedCorner,windowStoreThreeSided,windowStoreFourSided,windowStoreOneSidedEmpty,windowStoreTwoSidedEmpty,windowStoreTwoSidedCornerEmpty,windowStoreThreeSidedEmpty,windowStoreFourSidedEmpty"/>
+		</block>
+		
+		<block name="storeWindowVariantHelper">
+			<property name="Extends" value="windowStoreCornerFull"/>
+			<property name="CustomIcon" value="windowStoreCornerFull"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="40"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="windowStoreCornerFull,windowStoreOneSidedFull,windowStoreTwoSidedFull,windowStoreThreeSidedFull,windowStoreFourSidedFull"/>
+		</block>
+		
+		<block name="bulletproofWindowVariantHelper">
+			<property name="Extends" value="windowStoreCornerBulletproof"/>
+			<property name="CustomIcon" value="windowStoreCornerBulletproof"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="125"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="windowStoreCornerBulletproof,windowStoreOneSidedBulletproof,windowStoreTwoSidedBulletproof,windowStoreThreeSidedBulletproof,windowStoreFourSidedBulletproof"/>
+		</block>
+		
+		<block name="woodWindowTrimVariantHelper">
+			<property name="Extends" value="doorTrimTop"/>
+			<property name="CustomIcon" value="doorTrimTop"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="100"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="woodWindowTrim,woodWindowTrimBottom,woodWindowTrimTop,woodWindowTrimSides,woodWindowTrimTopFancy"/>
+		</block>
+		
+		<block name="controlPanelVariantHelper">
+			<property name="Extends" value="controlPanelBase01"/>
+			<property name="CustomIcon" value="controlPanelBase01"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="1100"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="controlPanelBase01,controlPanelBase02,controlPanelBase03,controlPanelBase04,controlPanelBase05,controlPanelBase06,controlPanelTop01,controlPanelTop02,controlPanelTop03,controlPanelTop04,controlPanelTop05,controlPanelTop06,controlPanelTop07,controlPanelCorner,controlPanelBase07,controlPanelBase08"/>
+		</block>
+		
+		<block name="roadSignVariantHelper">
+			<property name="Extends" value="doorTrimTop"/>
+			<property name="CustomIcon" value="doorTrimTop"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="250"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="signSpillwayLake,signRoadPrivate,signNoHazardousWaste,signRoadWork,signRoadRoughSurface,signSchoolZone,signCamping,signCampFish,signInfoCenter,signRoadSlow,signRoadSpeed25,signRoadStop,signRoadSpeed25noTrucks,signRoadSpeed35,signRoadSpeed45,signRoadSpeed55,signRoadSpeed65,signRoadStop4way"/>
+		</block>
+		
+		<block name="signShopGasVariantHelper">
+			<property name="Extends" value="signShopGas"/>
+			<property name="CustomIcon" value="signShopGas"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="2250"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="signShopGas,signShopGasLit,signShopGasWall,signShopGasWallLit,signShopGasLarge,signShopGasLargeLit,signShopGasLargeWall,signShopGasLargeWallLit"/>
+		</block>
+		
+		<block name="signShopGunStoreVariantHelper">
+			<property name="Extends" value="signShopGunStore"/>
+			<property name="CustomIcon" value="signShopGunStore"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="2250"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="signShopGunStore,signShopGunStoreLit,signShopGunStoreWall,signShopGunStoreWallLit,signShopGunStoreLarge,signShopGunStoreLargeLit,signShopGunStoreLargeWall,signShopGunStoreLargeWallLit"/>
+		</block>
+		
+		<block name="signShopBookStoreVariantHelper">
+			<property name="Extends" value="signShopBookStore"/>
+			<property name="CustomIcon" value="signShopBookStore"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="2250"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="signShopBookStore,signShopBookStoreLit,signShopBookStoreWall,signShopBookStoreWallLit,signShopBookStoreLarge,signShopBookStoreLargeLit,signShopBookStoreLargeWall,signShopBookStoreLargeWallLit"/>
+		</block>
+		
+		<block name="signShopPharmacyVariantHelper">
+			<property name="Extends" value="signShopPharmacy"/>
+			<property name="CustomIcon" value="signShopPharmacy"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="2250"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="signShopPharmacy,signShopPharmacyLit,signShopPharmacyWall,signShopPharmacyWallLit,signShopPharmacyLarge,signShopPharmacyLargeLit,signShopPharmacyLargeWall,signShopPharmacyLargeWallLit"/>
+		</block>
+		
+		<block name="signShopToolStoreVariantHelper">
+			<property name="Extends" value="signShopToolStore"/>
+			<property name="CustomIcon" value="signShopToolStore"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="2250"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="signShopToolStore,signShopToolStoreLit,signShopToolStoreWall,signShopToolStoreWallLit,signShopToolStoreLarge,signShopToolStoreLargeLit,signShopToolStoreLargeWall,signShopToolStoreLargeWallLit"/>
+		</block>
+		
+		<block name="signShopGroceryVariantHelper">
+			<property name="Extends" value="signShopGrocery"/>
+			<property name="CustomIcon" value="signShopGrocery"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="2250"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="signShopGrocery,signShopGroceryLit,signShopGroceryWall,signShopGroceryWallLit,signShopGroceryLarge,signShopGroceryLargeLit,signShopGroceryLargeWall,signShopGroceryLargeWallLit"/>
+		</block>
+		
+		<block name="signShopSavageCountryVariantHelper">
+			<property name="Extends" value="signShopSavageCountry"/>
+			<property name="CustomIcon" value="signShopSavageCountry"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="2250"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="signShopSavageCountry,signShopSavageCountryLit,signShopSavageCountryWall,signShopSavageCountryWallLit,signShopSavageCountryLarge,signShopSavageCountryLargeLit,signShopSavageCountryLargeWall,signShopSavageCountryLargeWallLit"/>
+		</block>
+		
+		<block name="signShopMoPowerElectronicsVariantHelper">
+			<property name="Extends" value="signShopMoPowerElectronics"/>
+			<property name="CustomIcon" value="signShopMoPowerElectronics"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="2250"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="signShopMoPowerElectronics,signShopMoPowerElectronicsLit,signShopMoPowerElectronicsWall,signShopMoPowerElectronicsWallLit,signShopMoPowerElectronicsLarge,signShopMoPowerElectronicsLargeLit,signShopMoPowerElectronicsLargeWall,signShopMoPowerElectronicsLargeWallLit"/>
+		</block>
+		
+		<block name="cntStoreFreezerVariantHelper">
+			<property name="Extends" value="cntFreezerMaster"/>
+			<property name="CustomIcon" value="cntFreezerGroceriesMiddleEmptyClosed"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="800"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntFreezerGroceriesMiddleEmptyClosed,cntFreezerGroceriesMiddleEmptyOpen,cntFreezerGroceriesMiddleEmptyOpenBroken,cntFreezerGroceriesMiddleEmptyClosed,cntFreezerGroceriesMiddleEmptyClosedBroken,cntFreezerGroceriesMiddleFullClosed,cntFreezerGroceriesMiddleFullClosedBroken,cntFreezerGroceriesMiddleFullClosed2,cntFreezerGroceriesMiddleFullClosedBroken2,cntFreezerGroceriesLeftEmptyClosed,cntFreezerGroceriesLeftEmptyClosedBroken,cntFreezerGroceriesRightEmptyClosed,cntFreezerGroceriesRightEmptyClosedBroken,cntFreezerBeveragesMiddleEmptyOpen,cntFreezerBeveragesMiddleEmptyOpenBroken,cntFreezerBeveragesMiddleEmptyClosed,cntFreezerBeveragesMiddleEmptyClosedBroken,cntFreezerBeveragesMiddleFullClosed,cntFreezerBeveragesMiddleFullClosedBroken,cntFreezerBeveragesLeftEmptyClosed,cntFreezerBeveragesLeftEmptyClosedBroken,cntFreezerBeveragesRightEmptyClosed,cntFreezerBeveragesRightEmptyClosedBroken"/>
+		</block>
+		
+		<block name="cntTrashPileVariantHelper">
+			<property name="Extends" value="cntTrashPile01"/>
+			<property name="CustomIcon" value="cntTrashPile01"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="1000"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntTrashPile01,cntTrashPile02,cntTrashPile03,cntTrashPile04,cntTrashPile05,cntTrashPile06,cntTrashPile07,cntTrashPile08,cntTrashPile09"/>
+		</block>
+		
+		<block name="cntCoffinPlayer">
+			<property name="Class" value="Loot"/>
+			<property name="Material" value="Mwood_weak"/>
+			<property name="EconomicValue" value="50"/>
+			<property name="CustomIcon" value="cntCoffin"/>
+			<property name="Shape" value="Ext3dModel"/> <property name="Texture" value="293"/>
+			<property name="Mesh" value="models"/>
+			<property name="Path" value="solid"/>
+			<property name="Model" value="Furniture/coffin" param1="main_mesh"/>
+			<property name="DisplayType" value="blockMulti"/>
+			<property name="MultiBlockDim" value="1,1,2"/>
+			<property name="ImposterExchange" value="imposterPlate" param1="1"/>
+			<property name="LootList" value="15"/>
+			<drop event="Destroy" name="resourceWood" count="1,3"/>
+			<property name="FilterTags" value="floot,ffurniture"/>
+			<drop event="Harvest" name="resourceBone" prob=".05" count="1,4" tag="WasteTreasuresCoffinHarvest"/>
+		</block>
+		
+		<block name="cntDisplayCaseEmptyVariantHelper">
+			<property name="Extends" value="cntDisplayCaseEmptyLeft"/>
+			<property name="CustomIcon" value="cntDisplayCaseEmptyLeft"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="425"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntDisplayCaseEmptyLeft,cntDisplayCaseEmptyLeftBroken,cntDisplayCaseEmptyMiddle,cntDisplayCaseEmptyMiddleBroken,cntDisplayCaseEmptyRight,cntDisplayCaseEmptyRightBroken"/>
+		</block>
+		
+		<block name="cntDisplayCaseAmmoVariantHelper">
+			<property name="Extends" value="cntDisplayCaseAmmoLeftBroken"/>
+			<property name="CustomIcon" value="cntDisplayCaseAmmoLeftBroken"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="425"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntDisplayCaseAmmoLeftBroken,cntDisplayCaseAmmoMiddleBroken01,cntDisplayCaseAmmoMiddleBroken02,cntDisplayCaseAmmoRightBroken"/>
+		</block>
+		
+		<block name="cntClothesRackEmptyVariantHelper">
+			<property name="Extends" value="cntClothesRackRoundEmpty"/>
+			<property name="CustomIcon" value="cntClothesRackRoundEmpty"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="175"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntClothesRackRoundEmpty,cntClothesRackRoundEmpty2,cntClothesRackRectangleEmpty,cntClothesRackRectangleEmpty2"/>
+		</block>
+		
+		<block name="cntClothesRackFilledVariantHelper">
+			<property name="Extends" value="cntClothesRackRoundPants"/>
+			<property name="CustomIcon" value="cntClothesRackRoundPants"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="225"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntClothesRackRoundPants,cntClothesRackRoundShirts,cntClothesRackRectanglePants,cntClothesRackRectangleShirts,cntClothesRackWallPants,cntClothesRackWallLongSleeve,cntClothesRackWallSweater,cntClothesRackWallTShirts"/>
+		</block>
+		
+		<block name="cntStoreShoeShelfVariantHelper">
+			<property name="Extends" value="cntStoreShelfDoubleBottomShoesFull"/>
+			<property name="CustomIcon" value="cntStoreShelfDoubleBottomShoesFull"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="225"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntStoreShelfDoubleBottomShoesEmpty,cntStoreShelfDoubleBottomShoesFull,cntStoreShelfDoubleTopShoesEmpty,cntStoreShelfDoubleTopShoesFull,cntStoreShelfSingleBottomShoesEmpty,cntStoreShelfSingleBottomShoesFull,cntStoreShelfSingleTopShoesEmpty,cntStoreShelfSingleTopShoesFull"/>
+		</block>
+		
+		<block name="cntBookShelfVariantHelper">
+			<property name="Extends" value="cntBookShelfSingleBottomEmpty"/>
+			<property name="CustomIcon" value="cntBookShelfSingleBottomEmpty"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="100"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntBookShelfSingleBottomEmpty,cntBookShelfSingleBottomFull01,cntBookShelfSingleBottomFull02,cntBookShelfSingleTopEmpty,cntBookShelfSingleTopFull01,cntBookShelfSingleTopFull02,cntBookShelfDoubleBottomEmpty,cntBookShelfDoubleBottomFull01,cntBookShelfDoubleBottomFull02,cntBookShelfDoubleTopEmpty,cntBookShelfDoubleTopFull01,cntBookShelfDoubleTopFull02,cntBookShelfSingleCapBottomEmpty,cntBookShelfSingleCapBottomFull01,cntBookShelfSingleCapBottomFull02,cntBookShelfSingleCapTopEmpty,cntBookShelfSingleCapTopFull01,cntBookShelfSingleCapTopFull02"/>
+		</block>
+		
+		<block name="cntBagVariantHelper">
+			<property name="Extends" value="cntBackpack01"/>
+			<property name="CustomIcon" value="cntBackpack01"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="50"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntBackpack01,cntBackpack03,cntDuffle01,cntSportsBag01,cntSportsBag02,cntPurse01"/>
+		</block>
+		
+		<block name="cntClothesShelfVariantHelper">
+			<property name="Extends" value="cntClothesShelfHalfEmpty"/>
+			<property name="CustomIcon" value="cntClothesShelfHalfEmpty"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="EconomicValue" value="100"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="cntClothesShelfHalfEmpty,cntClothesShelfHalfJeans01,cntClothesShelfHalfJeans02,cntClothesShelfHalfShirts01,cntClothesShelfHalfShirts02,cntClothesShelfHalfSweaters01,cntClothesShelfStackEmpty,cntClothesShelfStackJeans01,cntClothesShelfStackJeans02,cntClothesShelfStackShirts01,cntClothesShelfStackShirts02"/>
+		</block>
+		
+	</append>
+
+</NavezganeExiles>

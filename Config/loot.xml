@@ -1,0 +1,131 @@
+<NavezganeExiles>
+
+    <!-- Normalising some container sizes -->
+    <set xpath="/lootcontainers/lootcontainer[@id='143']/@size">8,3</set>
+	
+	<!-- Adding Ice Machine as a lootcontainer which can generate snowballs -->
+	<append xpath="/lootcontainers">
+		<!-- iceMachine -->
+		<lootcontainer id="144" count="0,5" size="8,6" sound_open="UseActions/open_cooler" sound_close="UseActions/close_chest" loot_quality_template="qualBaseTemplate">
+			<item name="resourceSnowBall" count="0,5"/>
+		</lootcontainer>
+	</append>
+	
+	<!-- Introducing T4 items, target is T4 = GS 150 or later -->
+	<append xpath="/lootcontainers/lootprobtemplates">
+		<lootprobtemplate name="ProbT4">
+			<loot level="0,147" prob="0"/>
+			<loot level="148,150" prob="0.04"/>
+			<loot level="151,153" prob="0.05"/>
+			<loot level="154,156" prob="0.05"/>
+			<loot level="157,158" prob="0.06"/>
+			<loot level="159,160" prob="0.06"/>
+			<loot level="161,163" prob="0.07"/>
+			<loot level="164,165" prob="0.11"/>
+			<loot level="166,168" prob="0.12"/>
+			<loot level="169,170" prob="0.13"/>
+			<loot level="171,172" prob="0.14"/>
+			<loot level="173,175" prob="0.15"/>
+			<loot level="176,177" prob="0.16"/>
+			<loot level="178,180" prob="0.21"/>
+			<loot level="181,182" prob="0.23"/>
+			<loot level="183,184" prob="0.24"/>
+			<loot level="185,187" prob="0.26"/>
+			<loot level="188,189" prob="0.27"/>
+			<loot level="190,192" prob="0.29"/>
+			<loot level="193,194" prob="0.3"/>
+			<loot level="195,196" prob="0.36"/>
+			<loot level="197,199" prob="0.38"/>
+			<loot level="200,201" prob="0.4"/>
+			<loot level="202,204" prob="0.42"/>
+			<loot level="205,206" prob="0.44"/>
+			<loot level="207,208" prob="0.46"/>
+			<loot level="209,211" prob="0.53"/>
+			<loot level="212,213" prob="0.55"/>
+			<loot level="214,216" prob="0.58"/>
+			<loot level="217,218" prob="0.6"/>
+			<loot level="219,220" prob="0.63"/>
+			<loot level="221,223" prob="0.66"/>
+			<loot level="224,225" prob="0.72"/>
+			<loot level="226,228" prob="0.75"/>
+			<loot level="229,230" prob="0.78"/>
+			<loot level="231,232" prob="0.81"/>
+			<loot level="233,235" prob="0.84"/>
+			<loot level="236,237" prob="0.88"/>
+			<loot level="238,240" prob="0.91"/>
+			<loot level="241,242" prob="0.94"/>
+			<loot level="243,244" prob="0.97"/>
+			<loot level="245,247" prob="1"/>
+			<loot level="248,249" prob="0.78"/>
+			<loot level="250,252" prob="0.8"/>
+			<loot level="253,254" prob="0.83"/>
+			<loot level="255,256" prob="0.86"/>
+			<loot level="257,259" prob="0.88"/>
+			<loot level="260,261" prob="0.91"/>
+			<loot level="262,264" prob="0.68"/>
+			<loot level="265,266" prob="0.7"/>
+			<loot level="267,268" prob="0.72"/>
+			<loot level="269,271" prob="0.74"/>
+			<loot level="272,273" prob="0.77"/>
+			<loot level="274,276" prob="0.79"/>
+			<loot level="277,278" prob="0.81"/>
+			<loot level="279,280" prob="0.57"/>
+			<loot level="281,283" prob="0.59"/>
+			<loot level="284,285" prob="0.6"/>
+			<loot level="286,288" prob="0.62"/>
+			<loot level="289,290" prob="0.63"/>
+			<loot level="291,292" prob="0.65"/>
+			<loot level="293,295" prob="0.61"/>
+			<loot level="296,297" prob="0.62"/>
+			<loot level="298,300" prob="0.63"/>
+			<loot level="301,302" prob="0.64"/>
+			<loot level="303,304" prob="0.65"/>
+			<loot level="305,307" prob="0.66"/>
+			<loot level="308,309" prob="0.67"/>
+			<loot level="310,312" prob="0.68"/>
+			<loot level="313,314" prob="0.68"/>
+			<loot level="315,316" prob="0.69"/>
+			<loot level="317,319" prob="0.69"/>
+			<loot level="320,321" prob="0.7"/>
+			<loot level="322,324" prob="0.65"/>
+			<loot level="325,999999" prob="0.3"/>
+		</lootprobtemplate>
+	</append>
+	
+	<append xpath="/lootcontainers/lootprobtemplates">
+		<lootprobtemplate name="QuestT4Prob">
+			<loot level="1,4" prob="0"/>
+			<loot level="5" prob="0.2"/>
+			<loot level="6,7" prob="0.1"/>
+		</lootprobtemplate>
+	</append>
+	
+	<insertAfter xpath="/lootcontainers/lootgroup[@name='schematicsWeaponsArmorT2']">
+		<lootgroup name="schematicsWeaponsArmorT4">
+			<item name="meleeWpnSledgeT4TreatedSteelSledgehammerSchematic"/>
+			<item name="meleeWpnKnucklesT4TreatedSteelKnucklesSchematic"/>
+			<item name="meleeWpnSpearT4TreatedSteelSpearSchematic"/>
+			<item name="meleeWpnClubT4TreatedSteelClubSchematic"/>
+			<item name="meleeWpnBladeT4TreatedMacheteSchematic"/>
+		</lootgroup>
+	</insertAfter>
+	
+	<append xpath="/lootcontainers/lootgroup[@name='schematicsWeaponsArmorRare']">
+		<item group="schematicsWeaponsArmorT4" loot_prob_template="ProbT4"/>
+	</append>
+	
+	<append xpath="/lootcontainers/lootgroup[@name='groupQuestSchematics']">
+		<item group="schematicsWeaponsArmorT4" loot_prob_template="QuestT4Prob"/>
+	</append>
+	
+	<append xpath="/lootcontainers/lootgroup[@name='perkBooks']">
+		<item name="bookRogueWorker1BrainPicker"/>
+		<item name="bookRogueWorker2ConstructedHomicide"/>
+		<item name="bookRogueWorker3BoneExcavation"/>
+		<item name="bookRogueWorker4WastelandRescue"/>
+		<item name="bookRogueWorker5DeadlyInnovation"/>
+		<item name="bookRogueWorker6IndustrialApproach"/>
+		<item name="bookRogueWorker7WorkersWill"/>
+	</append>
+
+</NavezganeExiles>

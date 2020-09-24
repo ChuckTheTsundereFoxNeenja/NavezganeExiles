@@ -1,0 +1,32 @@
+Food Tier 0
+Large Beef Ration = foodCanBeef
+Chicken Ration = foodCanChicken
+Lamb Rations = foodCanLamb
+Can of Cat Food = foodCanCatFood
+Can of Dog Food = foodCanDogFood
+Can of Chili = foodCanChili
+Can of Tuna = foodCanTuna
+Can of Sham = foodCanSham
+Can of Pasta = foodCanPasta
+Can of Salmon = foodCanSalmon
+
+Food Tier 1
+Grilled Meat = foodGrilledMeat
+Boiled Meat = foodBoiledMeat
+Bacon and Eggs = foodBaconAndEggs
+
+Food Tier 2
+Meat Stew = foodMeatStew
+Steak and Potato Meal = foodSteakAndPotato
+
+Food Tier 3
+Fish Tacos = foodFishTacos
+Sham Chowder = foodShamChowder
+Hobo Stew = foodHoboStew
+Chili Dog = foodChiliDog
+
+Food Tier 4
+Gumbo Stew = foodGumboStew
+Shepards Pie = foodShepardsPie
+Spaghetti = foodSpaghetti
+Tuna Fish Gravy Toast = foodTunaFishGravyToast

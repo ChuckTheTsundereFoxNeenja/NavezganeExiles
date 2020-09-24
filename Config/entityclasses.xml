@@ -1,0 +1,22 @@
+<NavezganeExiles>
+
+    <!-- Small buff to all base zombie speeds -->
+    <set xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='MoveSpeed']/@value">0.13</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='MoveSpeedAggro']/@value">0.25, 1.3</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='SwimSpeed']/@value">1.1</set>
+	
+	<!-- Small buff to all basic zombie health totals -->
+	
+	<append xpath="/entity_classes/entity_class[starts-with(@name, 'zombie') and not(contains(@name, 'animal')) and not(contains(@name, 'Feral')) and not(contains(@name, 'Radiated'))]/effect_group">
+		<passive_effect name="HealthMax" operation="perc_add" value="0.3"/>
+	</append>
+	
+	<append xpath="/entity_classes/entity_class[@name='animalZombieVulture']/effect_group">
+		<passive_effect name="HealthMax" operation="perc_add" value="0.5"/>
+	</append>
+	
+	<set xpath="/entity_classes/entity_class[@name='playerMale']/property[@name='ItemsOnEnterGame.GameModeSurvival']/@value">drinkCanMegaCrush,foodCanPeas,foodCanPeas,medicalFirstAidBandage,meleeToolTorch,keystoneBlock,noteDuke01</set>
+	<set xpath="/entity_classes/entity_class[@name='playerMale']/property[@name='ItemsOnEnterGame.GameModeSurvivalSP']/@value">drinkCanMegaCrush,foodCanPeas,foodCanPeas,medicalFirstAidBandage,meleeToolTorch,keystoneBlock</set>
+	<set xpath="/entity_classes/entity_class[@name='playerMale']/property[@name='ItemsOnEnterGame.GameModeSurvivalMP']/@value">drinkCanMegaCrush,foodCanPeas,foodCanPeas,medicalFirstAidBandage,meleeToolTorch,keystoneBlock</set>
+		
+</NavezganeExiles>

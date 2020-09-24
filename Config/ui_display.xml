@@ -1,0 +1,16 @@
+<NavezganeExiles>
+
+    <!-- Update to UI to include the new dysentery risks on items -->
+	<append xpath="/ui_display_info/item_display/item_display_info[@display_type='food']">
+		<display_entry name="dDysenteryRisk" title_key="statDysenteryRisk" display_type="Percent" negative_preferred="true"/>
+	</append>
+	
+	<append xpath="/ui_display_info/item_display/item_display_info[@display_type='foodShamChowder']">
+		<display_entry name="dDysenteryRisk" title_key="statDysenteryRisk" display_type="Percent" negative_preferred="true"/>
+	</append>
+	
+	<append xpath="/ui_display_info/item_display/item_display_info[@display_type='foodWater']">
+		<display_entry name="dDysenteryRisk" title_key="statDysenteryRisk" display_type="Percent" negative_preferred="true"/>
+	</append>
+
+</NavezganeExiles>

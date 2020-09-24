@@ -1,0 +1,24 @@
+<NavezganeExiles>
+
+    <!-- Broken --> <!-- Unchanged -->
+    <set xpath="/qualityinfo/quality[@key='0']/@color">000000</set>
+
+    <!-- Junk --> <!-- Normal -->
+    <set xpath="/qualityinfo/quality[@key='1']/@color">F0F0F0</set>
+
+    <!-- Common --> <!-- Magic -->
+    <set xpath="/qualityinfo/quality[@key='2']/@color">8888FF</set>
+
+    <!-- Uncommon --> <!-- Rare -->
+    <set xpath="/qualityinfo/quality[@key='3']/@color">FFFF77</set>
+
+    <!-- Rare --> <!-- Currency -->
+    <set xpath="/qualityinfo/quality[@key='4']/@color">E9DC7F</set>
+
+    <!-- Epic --> <!-- Unique -->
+    <set xpath="/qualityinfo/quality[@key='5']/@color">AF6025</set>
+
+    <!-- Legendary --> <!-- Relic, need to find correct color still -->
+    <set xpath="/qualityinfo/quality[@key='6']/@color">4AE63A</set>
+
+</NavezganeExiles>

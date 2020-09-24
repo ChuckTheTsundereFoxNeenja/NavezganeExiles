@@ -1,0 +1,14 @@
+<NavezganeExiles>
+
+    <!-- New Buff for the Rogue Worker book series completion -->
+	<append xpath="/buffs">
+		<buff name="buffRogueWorkerComplete" name_key="buffRogueWorkerCompleteName" description_key="buffRogueWorkerCompleteDesc" showonhud="false" icon="ui_game_symbol_hammer" icon_color="0,255,0">
+			<duration value="30"/>
+			<stack_type value="replace"/>
+			<effect_group>
+				<passive_effect name="BlockDamage" operation="perc_add" value=".25"/>
+			</effect_group>
+		</buff>
+	</append>
+
+</NavezganeExiles>

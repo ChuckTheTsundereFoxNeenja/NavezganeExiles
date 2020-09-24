@@ -1,0 +1,13 @@
+Forged Steel = 100
+Parts = 200, Rocket Parts = 400
+resourceSpring = 22 -> 50
+resourceScrapPolymers = 16 -> 25
+ElecParts = 32, Mechanical part = 32
+Duct Tape = 25, Leather = 22
+Acid = 140, Gas = 10 per 100
+Oil = 100, Military = 50
+Cloth = 1, Paper = 1
+Wood = 0.5, Sand = 1, Coal = 1
+Iron = 1, Forged Iron = 12
+Nail = 1, Pipe = 12
+Bone = 1, Yucca = 0.1, Rock = 1, Concrete = 2.5
